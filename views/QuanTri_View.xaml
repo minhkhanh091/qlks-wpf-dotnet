@@ -1,0 +1,40 @@
+﻿<Window x:Class="qlks_app.views.QuanTri_View"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:qlks_app.views"
+        mc:Ignorable="d"
+        Title="QuanTri_View" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="27*"/>
+            <RowDefinition Height="190*"/>
+        </Grid.RowDefinitions>
+        
+        <Menu>
+            <MenuItem Header="Hệ Thống">
+                <MenuItem Header="Sao Lưu"></MenuItem>
+                <MenuItem Header="Phụ Hồi"></MenuItem>
+                <MenuItem Header="Đăng Xuất"></MenuItem>
+                <MenuItem Header="Thoát"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Danh Mục">
+                <MenuItem Header="Khoa" Command="{Binding ShowKhoaCommand}"></MenuItem>
+                <MenuItem Header="Lớp" Command="{Binding ShowLopCommand}"></MenuItem>
+                <MenuItem Header="Môn Học"></MenuItem>
+                <MenuItem Header="Sinh Viên"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Quản Lý Điểm">
+                <MenuItem Header="Nhập Điểm"></MenuItem>
+                <MenuItem Header="Xem Điểm">
+                    <MenuItem Header="Theo Sinh Viên"></MenuItem>
+                    <MenuItem Header="Theo Lớp"></MenuItem>
+                </MenuItem>
+
+            </MenuItem>
+        </Menu>
+        <ContentControl Content="{Binding Current}" Grid.Row="1"/>
+
+    </Grid>
+</Window>

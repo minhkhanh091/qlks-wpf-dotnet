@@ -13,3 +13,10 @@ C:\Users\khanh\Desktop\_git\qlks-wpf-dotnet\obj\Debug\qlks-app.csproj.GenerateRe
 C:\Users\khanh\Desktop\_git\qlks-wpf-dotnet\obj\Debug\qlks-app.csproj.CoreCompileInputs.cache
 C:\Users\khanh\Desktop\_git\qlks-wpf-dotnet\obj\Debug\qlks-app.exe
 C:\Users\khanh\Desktop\_git\qlks-wpf-dotnet\obj\Debug\qlks-app.pdb
+C:\Users\khanh\Desktop\_git\qlks-wpf-dotnet\obj\Debug\views\login_View.g.cs
+C:\Users\khanh\Desktop\_git\qlks-wpf-dotnet\obj\Debug\views\login_View.baml
+C:\Users\khanh\Desktop\_git\qlks-wpf-dotnet\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\khanh\Desktop\_git\qlks-wpf-dotnet\obj\Debug\views\KhachHang_View.g.cs
+C:\Users\khanh\Desktop\_git\qlks-wpf-dotnet\obj\Debug\views\QuanTri_View.g.cs
+C:\Users\khanh\Desktop\_git\qlks-wpf-dotnet\obj\Debug\views\KhachHang_View.baml
+C:\Users\khanh\Desktop\_git\qlks-wpf-dotnet\obj\Debug\views\QuanTri_View.baml
