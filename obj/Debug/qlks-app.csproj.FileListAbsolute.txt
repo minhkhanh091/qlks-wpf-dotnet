@@ -1,0 +1,15 @@
+C:\Users\khanh\Desktop\_git\qlks-wpf-dotnet\bin\Debug\qlks-app.exe.config
+C:\Users\khanh\Desktop\_git\qlks-wpf-dotnet\bin\Debug\qlks-app.exe
+C:\Users\khanh\Desktop\_git\qlks-wpf-dotnet\bin\Debug\qlks-app.pdb
+C:\Users\khanh\Desktop\_git\qlks-wpf-dotnet\obj\Debug\qlks-app.csproj.AssemblyReference.cache
+C:\Users\khanh\Desktop\_git\qlks-wpf-dotnet\obj\Debug\MainWindow.g.cs
+C:\Users\khanh\Desktop\_git\qlks-wpf-dotnet\obj\Debug\App.g.cs
+C:\Users\khanh\Desktop\_git\qlks-wpf-dotnet\obj\Debug\qlks-app_MarkupCompile.cache
+C:\Users\khanh\Desktop\_git\qlks-wpf-dotnet\obj\Debug\qlks-app_MarkupCompile.lref
+C:\Users\khanh\Desktop\_git\qlks-wpf-dotnet\obj\Debug\MainWindow.baml
+C:\Users\khanh\Desktop\_git\qlks-wpf-dotnet\obj\Debug\qlks-app.g.resources
+C:\Users\khanh\Desktop\_git\qlks-wpf-dotnet\obj\Debug\qlks_app.Properties.Resources.resources
+C:\Users\khanh\Desktop\_git\qlks-wpf-dotnet\obj\Debug\qlks-app.csproj.GenerateResource.cache
+C:\Users\khanh\Desktop\_git\qlks-wpf-dotnet\obj\Debug\qlks-app.csproj.CoreCompileInputs.cache
+C:\Users\khanh\Desktop\_git\qlks-wpf-dotnet\obj\Debug\qlks-app.exe
+C:\Users\khanh\Desktop\_git\qlks-wpf-dotnet\obj\Debug\qlks-app.pdb
