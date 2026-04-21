@@ -35,8 +35,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -55,7 +67,46 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Account.cs">
+      <DependentUpon>qlks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Booking.cs">
+      <DependentUpon>qlks.tt</DependentUpon>
+    </Compile>
     <Compile Include="commands\RelayCommand.cs" />
+    <Compile Include="Customer.cs">
+      <DependentUpon>qlks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Invoice.cs">
+      <DependentUpon>qlks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="qlks.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>qlks.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="qlks.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>qlks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="qlks.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>qlks.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Room.cs">
+      <DependentUpon>qlks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RoomType.cs">
+      <DependentUpon>qlks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Service.cs">
+      <DependentUpon>qlks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceUsage.cs">
+      <DependentUpon>qlks.tt</DependentUpon>
+    </Compile>
     <Compile Include="views\KhachHang_View.xaml.cs">
       <DependentUpon>KhachHang_View.xaml</DependentUpon>
     </Compile>
@@ -110,14 +161,36 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <EntityDeploy Include="qlks.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>qlks.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="qlks.edmx.diagram">
+      <DependentUpon>qlks.edmx</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="qlks.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>qlks.edmx</DependentUpon>
+      <LastGenOutput>qlks.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="qlks.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>qlks.edmx</DependentUpon>
+      <LastGenOutput>qlks.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

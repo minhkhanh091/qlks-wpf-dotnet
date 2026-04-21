@@ -3,40 +3,44 @@
   "WorkspaceRootPath": "C:\\Users\\khanh\\Desktop\\_git\\qlks-wpf-dotnet\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D82C0D88-38FC-4EE6-BF21-F29950B1237E}|qlks-app.csproj|C:\\Users\\khanh\\Desktop\\_git\\qlks-wpf-dotnet\\view_model\\login_viewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D82C0D88-38FC-4EE6-BF21-F29950B1237E}|qlks-app.csproj|c:\\users\\khanh\\desktop\\_git\\qlks-wpf-dotnet\\view_model\\login_viewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D82C0D88-38FC-4EE6-BF21-F29950B1237E}|qlks-app.csproj|solutionrelative:view_model\\login_viewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D82C0D88-38FC-4EE6-BF21-F29950B1237E}|qlks-app.csproj|c:\\users\\khanh\\desktop\\_git\\qlks-wpf-dotnet\\views\\login_view.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{D82C0D88-38FC-4EE6-BF21-F29950B1237E}|qlks-app.csproj|C:\\Users\\khanh\\Desktop\\_git\\qlks-wpf-dotnet\\views\\login_view.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{D82C0D88-38FC-4EE6-BF21-F29950B1237E}|qlks-app.csproj|solutionrelative:views\\login_view.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D82C0D88-38FC-4EE6-BF21-F29950B1237E}|qlks-app.csproj|C:\\Users\\khanh\\Desktop\\_git\\qlks-wpf-dotnet\\view_model\\baseviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D82C0D88-38FC-4EE6-BF21-F29950B1237E}|qlks-app.csproj|solutionrelative:view_model\\baseviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D82C0D88-38FC-4EE6-BF21-F29950B1237E}|qlks-app.csproj|c:\\users\\khanh\\desktop\\_git\\qlks-wpf-dotnet\\views\\khachhang_view.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{D82C0D88-38FC-4EE6-BF21-F29950B1237E}|qlks-app.csproj|solutionrelative:views\\khachhang_view.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D82C0D88-38FC-4EE6-BF21-F29950B1237E}|qlks-app.csproj|C:\\Users\\khanh\\Desktop\\_git\\qlks-wpf-dotnet\\views\\login_view.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D82C0D88-38FC-4EE6-BF21-F29950B1237E}|qlks-app.csproj|solutionrelative:views\\login_view.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D82C0D88-38FC-4EE6-BF21-F29950B1237E}|qlks-app.csproj|c:\\users\\khanh\\desktop\\_git\\qlks-wpf-dotnet\\views\\quantri_view.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{D82C0D88-38FC-4EE6-BF21-F29950B1237E}|qlks-app.csproj|solutionrelative:views\\quantri_view.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D82C0D88-38FC-4EE6-BF21-F29950B1237E}|qlks-app.csproj|C:\\Users\\khanh\\Desktop\\_git\\qlks-wpf-dotnet\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{D82C0D88-38FC-4EE6-BF21-F29950B1237E}|qlks-app.csproj|solutionrelative:app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D82C0D88-38FC-4EE6-BF21-F29950B1237E}|qlks-app.csproj|C:\\Users\\khanh\\Desktop\\_git\\qlks-wpf-dotnet\\commands\\relaycommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D82C0D88-38FC-4EE6-BF21-F29950B1237E}|qlks-app.csproj|solutionrelative:commands\\relaycommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D82C0D88-38FC-4EE6-BF21-F29950B1237E}|qlks-app.csproj|c:\\users\\khanh\\desktop\\_git\\qlks-wpf-dotnet\\qlks.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|",
+      "RelativeMoniker": "D:0:0:{D82C0D88-38FC-4EE6-BF21-F29950B1237E}|qlks-app.csproj|solutionrelative:qlks.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D82C0D88-38FC-4EE6-BF21-F29950B1237E}|qlks-app.csproj|C:\\Users\\khanh\\Desktop\\_git\\qlks-wpf-dotnet\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
       "RelativeMoniker": "D:0:0:{D82C0D88-38FC-4EE6-BF21-F29950B1237E}|qlks-app.csproj|solutionrelative:app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D82C0D88-38FC-4EE6-BF21-F29950B1237E}|qlks-app.csproj|C:\\Users\\khanh\\Desktop\\_git\\qlks-wpf-dotnet\\views\\khachhang_view.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{D82C0D88-38FC-4EE6-BF21-F29950B1237E}|qlks-app.csproj|solutionrelative:views\\khachhang_view.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D82C0D88-38FC-4EE6-BF21-F29950B1237E}|qlks-app.csproj|C:\\Users\\khanh\\Desktop\\_git\\qlks-wpf-dotnet\\views\\quantri_view.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{D82C0D88-38FC-4EE6-BF21-F29950B1237E}|qlks-app.csproj|solutionrelative:views\\quantri_view.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D82C0D88-38FC-4EE6-BF21-F29950B1237E}|qlks-app.csproj|C:\\Users\\khanh\\Desktop\\_git\\qlks-wpf-dotnet\\view_model\\baseviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D82C0D88-38FC-4EE6-BF21-F29950B1237E}|qlks-app.csproj|solutionrelative:view_model\\baseviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D82C0D88-38FC-4EE6-BF21-F29950B1237E}|qlks-app.csproj|C:\\Users\\khanh\\Desktop\\_git\\qlks-wpf-dotnet\\views\\login_view.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D82C0D88-38FC-4EE6-BF21-F29950B1237E}|qlks-app.csproj|solutionrelative:views\\login_view.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D82C0D88-38FC-4EE6-BF21-F29950B1237E}|qlks-app.csproj|C:\\Users\\khanh\\Desktop\\_git\\qlks-wpf-dotnet\\commands\\relaycommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D82C0D88-38FC-4EE6-BF21-F29950B1237E}|qlks-app.csproj|solutionrelative:commands\\relaycommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D82C0D88-38FC-4EE6-BF21-F29950B1237E}|qlks-app.csproj|C:\\Users\\khanh\\Desktop\\_git\\qlks-wpf-dotnet\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -50,8 +54,28 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 9,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "qlks.edmx [Diagram1]",
+              "DocumentMoniker": "C:\\Users\\khanh\\Desktop\\_git\\qlks-wpf-dotnet\\qlks.edmx",
+              "RelativeDocumentMoniker": "qlks.edmx",
+              "ToolTip": "C:\\Users\\khanh\\Desktop\\_git\\qlks-wpf-dotnet\\qlks.edmx [Diagram1]",
+              "RelativeToolTip": "qlks.edmx [Diagram1]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001116|",
+              "WhenOpened": "2026-04-21T02:10:47.844Z",
+              "EditorCaption": " [Diagram1]"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
@@ -70,57 +94,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "KhachHang_View.xaml",
-              "DocumentMoniker": "C:\\Users\\khanh\\Desktop\\_git\\qlks-wpf-dotnet\\views\\KhachHang_View.xaml",
-              "RelativeDocumentMoniker": "views\\KhachHang_View.xaml",
-              "ToolTip": "C:\\Users\\khanh\\Desktop\\_git\\qlks-wpf-dotnet\\views\\KhachHang_View.xaml",
-              "RelativeToolTip": "views\\KhachHang_View.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-04-20T03:24:50.329Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "QuanTri_View.xaml",
-              "DocumentMoniker": "C:\\Users\\khanh\\Desktop\\_git\\qlks-wpf-dotnet\\views\\QuanTri_View.xaml",
-              "RelativeDocumentMoniker": "views\\QuanTri_View.xaml",
-              "ToolTip": "C:\\Users\\khanh\\Desktop\\_git\\qlks-wpf-dotnet\\views\\QuanTri_View.xaml",
-              "RelativeToolTip": "views\\QuanTri_View.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-04-20T03:24:41.056Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Login_ViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\khanh\\Desktop\\_git\\qlks-wpf-dotnet\\view_model\\Login_ViewModel.cs",
-              "RelativeDocumentMoniker": "view_model\\Login_ViewModel.cs",
-              "ToolTip": "C:\\Users\\khanh\\Desktop\\_git\\qlks-wpf-dotnet\\view_model\\Login_ViewModel.cs",
-              "RelativeToolTip": "view_model\\Login_ViewModel.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAywCsAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-20T03:15:50.118Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Login_View.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\khanh\\Desktop\\_git\\qlks-wpf-dotnet\\views\\Login_View.xaml.cs",
-              "RelativeDocumentMoniker": "views\\Login_View.xaml.cs",
-              "ToolTip": "C:\\Users\\khanh\\Desktop\\_git\\qlks-wpf-dotnet\\views\\Login_View.xaml.cs",
-              "RelativeToolTip": "views\\Login_View.xaml.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAADwvxYAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-20T03:02:38.298Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "RelayCommand.cs",
               "DocumentMoniker": "C:\\Users\\khanh\\Desktop\\_git\\qlks-wpf-dotnet\\commands\\RelayCommand.cs",
               "RelativeDocumentMoniker": "commands\\RelayCommand.cs",
@@ -129,19 +103,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAADwvxUAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-20T02:54:49.608Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "BaseViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\khanh\\Desktop\\_git\\qlks-wpf-dotnet\\view_model\\BaseViewModel.cs",
-              "RelativeDocumentMoniker": "view_model\\BaseViewModel.cs",
-              "ToolTip": "C:\\Users\\khanh\\Desktop\\_git\\qlks-wpf-dotnet\\view_model\\BaseViewModel.cs",
-              "RelativeToolTip": "view_model\\BaseViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvw0AAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-20T02:53:46.073Z",
-              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -157,19 +118,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "App.config",
-              "DocumentMoniker": "C:\\Users\\khanh\\Desktop\\_git\\qlks-wpf-dotnet\\App.config",
-              "RelativeDocumentMoniker": "App.config",
-              "ToolTip": "C:\\Users\\khanh\\Desktop\\_git\\qlks-wpf-dotnet\\App.config",
-              "RelativeToolTip": "App.config",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvwUAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2026-04-20T02:47:43.617Z"
+              "DocumentIndex": 0,
+              "Title": "Login_ViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\khanh\\Desktop\\_git\\qlks-wpf-dotnet\\view_model\\Login_ViewModel.cs",
+              "RelativeDocumentMoniker": "view_model\\Login_ViewModel.cs",
+              "ToolTip": "C:\\Users\\khanh\\Desktop\\_git\\qlks-wpf-dotnet\\view_model\\Login_ViewModel.cs",
+              "RelativeToolTip": "view_model\\Login_ViewModel.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAcwD8AAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-20T03:15:50.118Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 2,
               "Title": "App.xaml",
               "DocumentMoniker": "C:\\Users\\khanh\\Desktop\\_git\\qlks-wpf-dotnet\\App.xaml",
               "RelativeDocumentMoniker": "App.xaml",
@@ -181,14 +143,74 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 6,
+              "Title": "QuanTri_View.xaml",
+              "DocumentMoniker": "C:\\Users\\khanh\\Desktop\\_git\\qlks-wpf-dotnet\\views\\QuanTri_View.xaml",
+              "RelativeDocumentMoniker": "views\\QuanTri_View.xaml",
+              "ToolTip": "C:\\Users\\khanh\\Desktop\\_git\\qlks-wpf-dotnet\\views\\QuanTri_View.xaml",
+              "RelativeToolTip": "views\\QuanTri_View.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-20T03:24:41.056Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "KhachHang_View.xaml",
+              "DocumentMoniker": "C:\\Users\\khanh\\Desktop\\_git\\qlks-wpf-dotnet\\views\\KhachHang_View.xaml",
+              "RelativeDocumentMoniker": "views\\KhachHang_View.xaml",
+              "ToolTip": "C:\\Users\\khanh\\Desktop\\_git\\qlks-wpf-dotnet\\views\\KhachHang_View.xaml",
+              "RelativeToolTip": "views\\KhachHang_View.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-20T03:24:50.329Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "App.config",
+              "DocumentMoniker": "C:\\Users\\khanh\\Desktop\\_git\\qlks-wpf-dotnet\\App.config",
+              "RelativeDocumentMoniker": "App.config",
+              "ToolTip": "C:\\Users\\khanh\\Desktop\\_git\\qlks-wpf-dotnet\\App.config",
+              "RelativeToolTip": "App.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvxMAAACoAQAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2026-04-20T02:47:43.617Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Login_View.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\khanh\\Desktop\\_git\\qlks-wpf-dotnet\\views\\Login_View.xaml.cs",
+              "RelativeDocumentMoniker": "views\\Login_View.xaml.cs",
+              "ToolTip": "C:\\Users\\khanh\\Desktop\\_git\\qlks-wpf-dotnet\\views\\Login_View.xaml.cs",
+              "RelativeToolTip": "views\\Login_View.xaml.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAADwvxYAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-20T03:02:38.298Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "BaseViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\khanh\\Desktop\\_git\\qlks-wpf-dotnet\\view_model\\BaseViewModel.cs",
+              "RelativeDocumentMoniker": "view_model\\BaseViewModel.cs",
+              "ToolTip": "C:\\Users\\khanh\\Desktop\\_git\\qlks-wpf-dotnet\\view_model\\BaseViewModel.cs",
+              "RelativeToolTip": "view_model\\BaseViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvw0AAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-20T02:53:46.073Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\khanh\\Desktop\\_git\\qlks-wpf-dotnet\\MainWindow.xaml",
               "RelativeDocumentMoniker": "MainWindow.xaml",
               "ToolTip": "C:\\Users\\khanh\\Desktop\\_git\\qlks-wpf-dotnet\\MainWindow.xaml",
               "RelativeToolTip": "MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-04-20T02:26:51.252Z"
+              "WhenOpened": "2026-04-20T02:26:51.252Z",
+              "EditorCaption": ""
             }
           ]
         }

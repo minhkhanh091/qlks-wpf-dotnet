@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="86edc1fe979c4663ad0e44cc075c95f2" Name="Diagram1">
+        <EntityTypeShape EntityType="QLKSModel.Account" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLKSModel.Booking" Width="1.5" PointX="6" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLKSModel.Customer" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLKSModel.Invoice" Width="1.5" PointX="8.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLKSModel.Room" Width="1.5" PointX="3.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLKSModel.RoomType" Width="1.5" PointX="1.5" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLKSModel.Service" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLKSModel.ServiceUsage" Width="1.5" PointX="8.25" PointY="1.5" IsExpanded="true" />
+        <AssociationConnector Association="QLKSModel.FK_Accounts_Customers" ManuallyRouted="false" />
+        <AssociationConnector Association="QLKSModel.FK_Bookings_Customers" ManuallyRouted="false" />
+        <AssociationConnector Association="QLKSModel.FK_Bookings_Rooms" ManuallyRouted="false" />
+        <AssociationConnector Association="QLKSModel.FK_Invoices_Bookings" ManuallyRouted="false" />
+        <AssociationConnector Association="QLKSModel.FK_ServiceUsage_Bookings" ManuallyRouted="false" />
+        <AssociationConnector Association="QLKSModel.FK_Rooms_RoomTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="QLKSModel.FK_ServiceUsage_Services" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -20,3 +20,10 @@ C:\Users\khanh\Desktop\_git\qlks-wpf-dotnet\obj\Debug\views\KhachHang_View.g.cs
 C:\Users\khanh\Desktop\_git\qlks-wpf-dotnet\obj\Debug\views\QuanTri_View.g.cs
 C:\Users\khanh\Desktop\_git\qlks-wpf-dotnet\obj\Debug\views\KhachHang_View.baml
 C:\Users\khanh\Desktop\_git\qlks-wpf-dotnet\obj\Debug\views\QuanTri_View.baml
+C:\Users\khanh\Desktop\_git\qlks-wpf-dotnet\obj\Debug\qlks-app_Content.g.cs
+C:\Users\khanh\Desktop\_git\qlks-wpf-dotnet\bin\Debug\EntityFramework.dll
+C:\Users\khanh\Desktop\_git\qlks-wpf-dotnet\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\khanh\Desktop\_git\qlks-wpf-dotnet\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\khanh\Desktop\_git\qlks-wpf-dotnet\bin\Debug\EntityFramework.xml
+C:\Users\khanh\Desktop\_git\qlks-wpf-dotnet\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\khanh\Desktop\_git\qlks-wpf-dotnet\obj\Debug\qlks-app.csproj.Up2Date

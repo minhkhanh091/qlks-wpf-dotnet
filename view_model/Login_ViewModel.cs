@@ -35,31 +35,73 @@ namespace qlks_app.view_model
             }
         }
 
+        private string _matKhau;
+        public string matKhau
+        {
+            get { return _matKhau; }
+            set
+            {
+                _matKhau = value;
+                OnPropertyChanged(nameof(matKhau));
+            }
+        }
+
         public RelayCommand DangNhapCommand { get; set; }
+        public RelayCommand HuyCommand { get; set; }
 
         public Login_ViewModel()
         {
             DangNhapCommand = new RelayCommand(o =>
             {
-                bool isValid = true;
-
-                if (isValid)
+                try
                 {
-                    if (vaiTro == "Quản trị")
+                    var db = new QLKSEntities();
+                    var account = db.Accounts.FirstOrDefault(a =>
+                        a.Username == tenTaiKhoan &&
+                        a.Password == matKhau);
+
+                    if (account == null)
+                    {
+                        MessageBox.Show("Sai tài khoản hoặc mật khẩu");
+                        return;
+                    }
+
+                    var selectedRole = vaiTro;
+                    var accountRole = account.Role;
+
+                    if (selectedRole != accountRole)
+                    {
+                        MessageBox.Show("Vai trò đăng nhập không đúng");
+                        return;
+                    }
+
+                    if (accountRole == "QUANTRI")
                     {
                         new views.QuanTri_View().Show();
                     }
-                    else if (vaiTro == "Khách hàng")
+                    else if (accountRole == "KHACHHANG")
                     {
                         new views.KhachHang_View().Show();
                     }
+                    else
+                    {
+                        MessageBox.Show("Vai trò tài khoản không hợp lệ");
+                        return;
+                    }
 
-                    Application.Current.MainWindow.Close();
+                    (o as Window)?.Close();
                 }
-                else
+                catch
                 {
-                    MessageBox.Show("Sai tài khoản hoặc mật khẩu");
+                    MessageBox.Show("Không thể kết nối dữ liệu đăng nhập");
                 }
+            }, o =>
+                !string.IsNullOrWhiteSpace(tenTaiKhoan) &&
+                !string.IsNullOrWhiteSpace(matKhau) &&
+                !string.IsNullOrWhiteSpace(vaiTro));
+
+            HuyCommand = new RelayCommand(o => {
+                Application.Current.Shutdown();
             });
         }
     }
