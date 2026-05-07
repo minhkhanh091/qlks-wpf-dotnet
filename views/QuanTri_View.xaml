@@ -3,38 +3,167 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:qlks_app.views"
+        xmlns:local="clr-namespace:qlks_app.view_model"
         mc:Ignorable="d"
-        Title="QuanTri_View" Height="450" Width="800">
+        Title="QuanTri_View" Height="700" Width="1200"
+        Background="#F4F6F9">
+
+    <Window.DataContext>
+        <local:QuanTri_ViewModel/>
+    </Window.DataContext>
+
+    <Window.Resources>
+        <!-- Màu sắc chủ đạo -->
+        <SolidColorBrush x:Key="PrimaryColor" Color="#2C3E50"/>
+        <SolidColorBrush x:Key="AccentColor" Color="#3498DB"/>
+        <SolidColorBrush x:Key="SuccessColor" Color="#27AE60"/>
+        <SolidColorBrush x:Key="DangerColor" Color="#E74C3C"/>
+        <SolidColorBrush x:Key="WarningColor" Color="#F39C12"/>
+        <SolidColorBrush x:Key="BackgroundColor" Color="#ECF0F1"/>
+
+        <!-- Style cho Button -->
+        <Style x:Key="PrimaryButton" TargetType="Button">
+            <Setter Property="Background" Value="{StaticResource AccentColor}"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Height" Value="35"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Margin" Value="5"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#2980B9"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="SuccessButton" TargetType="Button">
+            <Setter Property="Background" Value="{StaticResource SuccessColor}"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Height" Value="35"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Margin" Value="5"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#229954"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- Style cho TextBox -->
+        <Style TargetType="TextBox">
+            <Setter Property="Height" Value="35"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Padding" Value="10,0"/>
+            <Setter Property="BorderBrush" Value="#BDC3C7"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="FontSize" Value="14"/>
+        </Style>
+
+        <!-- Style cho ComboBox -->
+        <Style TargetType="ComboBox">
+            <Setter Property="Height" Value="35"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="FontSize" Value="14"/>
+        </Style>
+    </Window.Resources>
+
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="27*"/>
-            <RowDefinition Height="190*"/>
-        </Grid.RowDefinitions>
-        
-        <Menu>
-            <MenuItem Header="Hệ Thống">
-                <MenuItem Header="Sao Lưu"></MenuItem>
-                <MenuItem Header="Phụ Hồi"></MenuItem>
-                <MenuItem Header="Đăng Xuất"></MenuItem>
-                <MenuItem Header="Thoát"></MenuItem>
-            </MenuItem>
-            <MenuItem Header="Danh Mục">
-                <MenuItem Header="Khoa" Command="{Binding ShowKhoaCommand}"></MenuItem>
-                <MenuItem Header="Lớp" Command="{Binding ShowLopCommand}"></MenuItem>
-                <MenuItem Header="Môn Học"></MenuItem>
-                <MenuItem Header="Sinh Viên"></MenuItem>
-            </MenuItem>
-            <MenuItem Header="Quản Lý Điểm">
-                <MenuItem Header="Nhập Điểm"></MenuItem>
-                <MenuItem Header="Xem Điểm">
-                    <MenuItem Header="Theo Sinh Viên"></MenuItem>
-                    <MenuItem Header="Theo Lớp"></MenuItem>
-                </MenuItem>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
-            </MenuItem>
-        </Menu>
-        <ContentControl Content="{Binding Current}" Grid.Row="1"/>
+        <!-- ========== SIDEBAR MENU ========== -->
+        <Border Grid.Column="0" Background="{StaticResource PrimaryColor}">
+            <StackPanel Margin="20">
+                <!-- Logo -->
+                <Border Background="#34495E" CornerRadius="10" Padding="15" Margin="0,0,0,30">
+                    <TextBlock Text="🏨 QUẢN LÝ KHÁCH SẠN" 
+                               FontSize="16" FontWeight="Bold"
+                               Foreground="White"
+                               TextWrapping="Wrap"
+                               TextAlignment="Center"/>
+                </Border>
 
+                <!-- Menu Items -->
+                <Button x:Name="BtnRoomManagement" Command="{Binding ShowRoomManagementCommand}"
+                        Style="{StaticResource PrimaryButton}" Width="Auto"
+                        Background="Transparent" HorizontalAlignment="Left"
+                        Foreground="#BDC3C7" FontWeight="Normal">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="🛏️ " FontSize="16"/>
+                        <TextBlock Text="Quản lý phòng" FontSize="14" Margin="10,0,0,0"/>
+                    </StackPanel>
+                </Button>
+
+                <Button x:Name="BtnServiceManagement" Command="{Binding ShowServiceManagementCommand}"
+                        Style="{StaticResource PrimaryButton}" Width="Auto"
+                        Background="Transparent" HorizontalAlignment="Left"
+                        Foreground="#BDC3C7" FontWeight="Normal" Margin="0,10,0,0">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="🎯 " FontSize="16"/>
+                        <TextBlock Text="Quản lý dịch vụ" FontSize="14" Margin="10,0,0,0"/>
+                    </StackPanel>
+                </Button>
+
+                <Button x:Name="BtnEmployeeManagement" Command="{Binding ShowEmployeeManagementCommand}"
+                        Style="{StaticResource PrimaryButton}" Width="Auto"
+                        Background="Transparent" HorizontalAlignment="Left"
+                        Foreground="#BDC3C7" FontWeight="Normal" Margin="0,10,0,0">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="👥 " FontSize="16"/>
+                        <TextBlock Text="Quản lý nhân viên" FontSize="14" Margin="10,0,0,0"/>
+                    </StackPanel>
+                </Button>
+
+                <Button x:Name="BtnInventoryManagement" Command="{Binding ShowInventoryManagementCommand}"
+                        Style="{StaticResource PrimaryButton}" Width="Auto"
+                        Background="Transparent" HorizontalAlignment="Left"
+                        Foreground="#BDC3C7" FontWeight="Normal" Margin="0,10,0,0">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="📦 " FontSize="16"/>
+                        <TextBlock Text="Quản lý kho" FontSize="14" Margin="10,0,0,0"/>
+                    </StackPanel>
+                </Button>
+
+                <Button x:Name="BtnReport" Command="{Binding ShowReportCommand}"
+                        Style="{StaticResource PrimaryButton}" Width="Auto"
+                        Background="Transparent" HorizontalAlignment="Left"
+                        Foreground="#BDC3C7" FontWeight="Normal" Margin="0,10,0,0">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="📊 " FontSize="16"/>
+                        <TextBlock Text="Báo cáo" FontSize="14" Margin="10,0,0,0"/>
+                    </StackPanel>
+                </Button>
+
+                <Border Height="1" Background="#34495E" Margin="0,30,0,20"/>
+
+                <Button x:Name="BtnLogout" Command="{Binding DangXuatCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
+                        Style="{StaticResource PrimaryButton}" Width="Auto"
+                        Background="Transparent" HorizontalAlignment="Left"
+                        Foreground="#BDC3C7" FontWeight="Normal">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="🚪 " FontSize="16"/>
+                        <TextBlock Text="Đăng xuất" FontSize="14" Margin="10,0,0,0"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </Border>
+
+        <!-- ========== MAIN CONTENT AREA ========== -->
+        <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto">
+            <Border Background="{StaticResource BackgroundColor}" Padding="20">
+
+                <!-- Nội dung thay đổi theo menu được chọn -->
+                <ContentControl x:Name="MainContent" Content="{Binding Current}"/>
+
+            </Border>
+        </ScrollViewer>
     </Grid>
 </Window>

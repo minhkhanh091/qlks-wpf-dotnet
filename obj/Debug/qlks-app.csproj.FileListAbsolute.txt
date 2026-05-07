@@ -27,3 +27,7 @@ C:\Users\khanh\Desktop\_git\qlks-wpf-dotnet\bin\Debug\Microsoft.Web.Infrastructu
 C:\Users\khanh\Desktop\_git\qlks-wpf-dotnet\bin\Debug\EntityFramework.xml
 C:\Users\khanh\Desktop\_git\qlks-wpf-dotnet\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\khanh\Desktop\_git\qlks-wpf-dotnet\obj\Debug\qlks-app.csproj.Up2Date
+C:\Users\khanh\Desktop\_git\qlks-wpf-dotnet\obj\Debug\views\NhanVienManagement_View.baml
+C:\Users\khanh\Desktop\_git\qlks-wpf-dotnet\obj\Debug\views\NhanVienManagement_View.g.cs
+C:\Users\khanh\Desktop\_git\qlks-wpf-dotnet\obj\Debug\views\QuanLiPhong_View.g.cs
+C:\Users\khanh\Desktop\_git\qlks-wpf-dotnet\obj\Debug\views\QuanLiPhong_View.baml

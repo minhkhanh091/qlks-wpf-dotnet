@@ -80,6 +80,9 @@
     <Compile Include="Invoice.cs">
       <DependentUpon>qlks.tt</DependentUpon>
     </Compile>
+    <Compile Include="models\LoaiPhong.cs" />
+    <Compile Include="models\NhanVien.cs" />
+    <Compile Include="models\Phong.cs" />
     <Compile Include="qlks.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -113,11 +116,21 @@
     <Compile Include="views\Login_View.xaml.cs">
       <DependentUpon>Login_View.xaml</DependentUpon>
     </Compile>
+    <Compile Include="views\NhanVienManagement_View.xaml.cs">
+      <DependentUpon>NhanVienManagement_View.xaml</DependentUpon>
+    </Compile>
     <Compile Include="views\QuanTri_View.xaml.cs">
       <DependentUpon>QuanTri_View.xaml</DependentUpon>
     </Compile>
+    <Compile Include="views\QuanLiPhong_View.xaml.cs">
+      <DependentUpon>QuanLiPhong_View.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view_model\BaseViewModel.cs" />
     <Compile Include="view_model\Login_ViewModel.cs" />
+    <Compile Include="view_model\NhanVienManagement_ViewModel.cs" />
+    <Compile Include="view_model\QuanTri_ViewModel.cs" />
+    <Compile Include="view_model\QuanLiPhong_ViewModel.cs" />
+    <Compile Include="view_model\RoomManagement_ViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -138,9 +151,16 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="views\NhanVienManagement_View.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="views\QuanTri_View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\QuanLiPhong_View.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>

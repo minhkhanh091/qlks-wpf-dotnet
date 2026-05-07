@@ -39,51 +39,53 @@ CREATE TABLE Accounts
 GO
 
 
-CREATE TABLE RoomTypes
+CREATE TABLE LoaiPhong
 (
     Id INT IDENTITY(1,1),
     Name NVARCHAR(50),
     Price DECIMAL(10,2),
+	SucChua INT NOT NULL DEFAULT 2,
 
     CONSTRAINT PK_RoomTypes PRIMARY KEY (Id)
 );
 GO
 
-
--- =========================
--- ROOMS
--- =========================
-CREATE TABLE Rooms
+CREATE TABLE Phong
 (
     Id INT IDENTITY(1,1),
-    Name NVARCHAR(50),
-    TypeId INT,
-    Status NVARCHAR(20),
+    SoPhong NVARCHAR(20) NOT NULL,
+    LoaiPhongId INT NOT NULL,
+    GiaMoiDem DECIMAL(18,2) NOT NULL,
+    SucChua INT NOT NULL DEFAULT 2,
+    MoTa NVARCHAR(500) NULL,
+    TrangThai NVARCHAR(30) NOT NULL DEFAULT N'Trống',
+    NgayCheckin DATETIME NULL,
+    NgayCheckout DATETIME NULL,
 
-    CONSTRAINT PK_Rooms PRIMARY KEY (Id),
+    CONSTRAINT PK_Phong PRIMARY KEY (Id),
 
-    CONSTRAINT FK_Rooms_RoomTypes FOREIGN KEY (TypeId)
-        REFERENCES RoomTypes(Id)
+    CONSTRAINT FK_Phong_LoaiPhong FOREIGN KEY (LoaiPhongId)
+        REFERENCES LoaiPhong(Id)
 );
 GO
 
 
-CREATE TABLE Bookings
+CREATE TABLE DatPhong
 (
     Id INT IDENTITY(1,1),
-    CustomerId INT,
-    RoomId INT,
-    CheckIn DATETIME,
-    CheckOut DATETIME,
-    Status NVARCHAR(50),
+    MaKhachHang INT,
+    MaPhong INT,
+    NgayCheckin DATETIME,
+    NgayCheckout DATETIME,
+    TrangThai NVARCHAR(50),
 
-    CONSTRAINT PK_Bookings PRIMARY KEY (Id),
+    CONSTRAINT PK_DatPhong PRIMARY KEY (Id),
 
-    CONSTRAINT FK_Bookings_Customers FOREIGN KEY (CustomerId)
+    CONSTRAINT FK_DatPhong_KhachHang FOREIGN KEY (KhangHangId)
         REFERENCES Customers(Id),
 
-    CONSTRAINT FK_Bookings_Rooms FOREIGN KEY (RoomId)
-        REFERENCES Rooms(Id)
+    CONSTRAINT FK_DatPhong_Phong FOREIGN KEY (MaPhong)
+        REFERENCES Phong(Id)
 );
 GO
 
@@ -108,8 +110,8 @@ CREATE TABLE ServiceUsage
 
     CONSTRAINT PK_ServiceUsage PRIMARY KEY (Id),
 
-    CONSTRAINT FK_ServiceUsage_Bookings FOREIGN KEY (BookingId)
-        REFERENCES Bookings(Id),
+    CONSTRAINT FK_ServiceUsage_DatPhong FOREIGN KEY (BookingId)
+        REFERENCES DatPhong(Id),
 
     CONSTRAINT FK_ServiceUsage_Services FOREIGN KEY (ServiceId)
         REFERENCES Services(Id)
@@ -126,8 +128,8 @@ CREATE TABLE Invoices
 
     CONSTRAINT PK_Invoices PRIMARY KEY (Id),
 
-    CONSTRAINT FK_Invoices_Bookings FOREIGN KEY (BookingId)
-        REFERENCES Bookings(Id)
+    CONSTRAINT FK_Invoices_DatPhong FOREIGN KEY (BookingId)
+        REFERENCES DatPhong(Id)
 );
 GO
 
