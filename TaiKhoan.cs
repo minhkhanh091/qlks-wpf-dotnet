@@ -12,14 +12,16 @@ namespace qlks_app
     using System;
     using System.Collections.Generic;
     
-    public partial class Account
+    public partial class TaiKhoan
     {
         public int Id { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
-        public string Role { get; set; }
-        public Nullable<int> CustomerId { get; set; }
+        public string TenDangNhap { get; set; }
+        public string MatKhau { get; set; }
+        public string VaiTro { get; set; }
+        public Nullable<int> KhachHangId { get; set; }
+        public Nullable<int> NhanVienId { get; set; }
     
-        public virtual Customer Customer { get; set; }
+        public virtual KhachHang KhachHang { get; set; }
+        public virtual NhanVien NhanVien { get; set; }
     }
 }

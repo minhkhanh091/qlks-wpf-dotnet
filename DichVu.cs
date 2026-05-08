@@ -12,23 +12,20 @@ namespace qlks_app
     using System;
     using System.Collections.Generic;
     
-    public partial class Customer
+    public partial class DichVu
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Customer()
+        public DichVu()
         {
-            this.Accounts = new HashSet<Account>();
-            this.Bookings = new HashSet<Booking>();
+            this.SuDungDichVus = new HashSet<SuDungDichVu>();
         }
     
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Phone { get; set; }
-        public string Address { get; set; }
+        public string TenDichVu { get; set; }
+        public decimal DonGia { get; set; }
+        public string DonViTinh { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Account> Accounts { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Booking> Bookings { get; set; }
+        public virtual ICollection<SuDungDichVu> SuDungDichVus { get; set; }
     }
 }

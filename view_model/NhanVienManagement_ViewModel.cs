@@ -2,7 +2,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using qlks_app.commands;
-using qlks_app.models;
+using ModelNhanVien = qlks_app.models.NhanVien;
 
 namespace qlks_app.view_model
 {
@@ -10,14 +10,14 @@ namespace qlks_app.view_model
     {
         private bool _hienThiForm;
         private bool _dangSua;
-        private NhanVien _nhanVienDangChon;
+        private ModelNhanVien _nhanVienDangChon;
         private string _tenNhanVien;
         private string _soDienThoai;
         private string _hinhAnh;
 
-        public ObservableCollection<NhanVien> DanhSachNhanVien { get; } = new ObservableCollection<NhanVien>();
+        public ObservableCollection<ModelNhanVien> DanhSachNhanVien { get; } = new ObservableCollection<ModelNhanVien>();
 
-        public NhanVien NhanVienDangChon
+        public ModelNhanVien NhanVienDangChon
         {
             get { return _nhanVienDangChon; }
             set
@@ -125,7 +125,7 @@ namespace qlks_app.view_model
                 else
                 {
                     var nextId = DanhSachNhanVien.Count == 0 ? 1 : DanhSachNhanVien.Max(p => p.MaNhanVien) + 1;
-                    DanhSachNhanVien.Add(new NhanVien
+                    DanhSachNhanVien.Add(new ModelNhanVien
                     {
                         MaNhanVien = nextId,
                         TenNhanVien = TenNhanVien,
@@ -142,7 +142,7 @@ namespace qlks_app.view_model
                 HienThiForm = false;
             });
 
-            DanhSachNhanVien.Add(new NhanVien
+            DanhSachNhanVien.Add(new ModelNhanVien
             {
                 MaNhanVien = 1,
                 TenNhanVien = "Nguyễn Văn A",

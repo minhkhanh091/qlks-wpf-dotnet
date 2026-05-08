@@ -12,21 +12,25 @@ namespace qlks_app
     using System;
     using System.Collections.Generic;
     
-    public partial class Room
+    public partial class NhanVien
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Room()
+        public NhanVien()
         {
-            this.Bookings = new HashSet<Booking>();
+            this.TaiKhoans = new HashSet<TaiKhoan>();
         }
     
         public int Id { get; set; }
-        public string Name { get; set; }
-        public Nullable<int> TypeId { get; set; }
-        public string Status { get; set; }
+        public string HoTen { get; set; }
+        public string DienThoai { get; set; }
+        public string Email { get; set; }
+        public string ChucVu { get; set; }
+        public decimal LuongCoBan { get; set; }
+        public Nullable<System.DateTime> NgayVaoLam { get; set; }
+        public string HinhAnh { get; set; }
+        public bool TrangThai { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Booking> Bookings { get; set; }
-        public virtual RoomType RoomType { get; set; }
+        public virtual ICollection<TaiKhoan> TaiKhoans { get; set; }
     }
 }

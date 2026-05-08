@@ -5,199 +5,219 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="QLKSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Accounts">
+        <EntityType Name="DatPhong">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Password" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="Role" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="CustomerId" Type="int" />
+          <Property Name="KhachHangId" Type="int" Nullable="false" />
+          <Property Name="PhongId" Type="int" Nullable="false" />
+          <Property Name="NgayCheckin" Type="datetime" Nullable="false" />
+          <Property Name="NgayCheckout" Type="datetime" Nullable="false" />
+          <Property Name="TrangThai" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TongTien" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
-        <EntityType Name="Bookings">
+        <EntityType Name="DichVu">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CustomerId" Type="int" />
-          <Property Name="RoomId" Type="int" />
-          <Property Name="CheckIn" Type="datetime" />
-          <Property Name="CheckOut" Type="datetime" />
-          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="TenDichVu" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DonGia" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="DonViTinh" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <EntityType Name="Customers">
+        <EntityType Name="KhachHang">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="Phone" Type="nvarchar" MaxLength="15" />
-          <Property Name="Address" Type="nvarchar" MaxLength="200" />
+          <Property Name="HoTen" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DienThoai" Type="nvarchar" MaxLength="15" />
+          <Property Name="DiaChi" Type="nvarchar" MaxLength="200" />
         </EntityType>
-        <EntityType Name="Invoices">
+        <EntityType Name="LoaiPhong">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="BookingId" Type="int" />
-          <Property Name="Total" Type="decimal" Precision="12" Scale="2" />
-          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="TenLoai" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Gia" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="SucChua" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="Rooms">
+        <EntityType Name="NhanVien">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="50" />
-          <Property Name="TypeId" Type="int" />
-          <Property Name="Status" Type="nvarchar" MaxLength="20" />
+          <Property Name="HoTen" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DienThoai" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="ChucVu" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LuongCoBan" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="NgayVaoLam" Type="datetime" />
+          <Property Name="HinhAnh" Type="nvarchar" MaxLength="500" />
+          <Property Name="TrangThai" Type="bit" Nullable="false" />
         </EntityType>
-        <EntityType Name="RoomTypes">
+        <EntityType Name="Phong">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="50" />
-          <Property Name="Price" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="SoPhong" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="LoaiPhongId" Type="int" Nullable="false" />
+          <Property Name="GiaMoiDem" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="SucChua" Type="int" Nullable="false" />
+          <Property Name="MoTa" Type="nvarchar" MaxLength="500" />
+          <Property Name="TrangThai" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="NgayCheckin" Type="datetime" />
+          <Property Name="NgayCheckout" Type="datetime" />
         </EntityType>
-        <EntityType Name="Services">
+        <EntityType Name="SuDungDichVu">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="100" />
-          <Property Name="Price" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="DatPhongId" Type="int" Nullable="false" />
+          <Property Name="DichVuId" Type="int" Nullable="false" />
+          <Property Name="SoLuong" Type="int" Nullable="false" />
+          <Property Name="ThanhTien" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="NgaySuDung" Type="datetime" />
         </EntityType>
-        <EntityType Name="ServiceUsage">
+        <EntityType Name="TaiKhoan">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="BookingId" Type="int" />
-          <Property Name="ServiceId" Type="int" />
-          <Property Name="Quantity" Type="int" />
+          <Property Name="TenDangNhap" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MatKhau" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="VaiTro" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="KhachHangId" Type="int" />
+          <Property Name="NhanVienId" Type="int" />
         </EntityType>
-        <Association Name="FK_Accounts_Customers">
-          <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
-          <End Role="Accounts" Type="Self.Accounts" Multiplicity="*" />
+        <Association Name="FK_DatPhong_KhachHang">
+          <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="1" />
+          <End Role="DatPhong" Type="Self.DatPhong" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Customers">
+            <Principal Role="KhachHang">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Accounts">
-              <PropertyRef Name="CustomerId" />
+            <Dependent Role="DatPhong">
+              <PropertyRef Name="KhachHangId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Bookings_Customers">
-          <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
-          <End Role="Bookings" Type="Self.Bookings" Multiplicity="*" />
+        <Association Name="FK_DatPhong_Phong">
+          <End Role="Phong" Type="Self.Phong" Multiplicity="1" />
+          <End Role="DatPhong" Type="Self.DatPhong" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Customers">
+            <Principal Role="Phong">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Bookings">
-              <PropertyRef Name="CustomerId" />
+            <Dependent Role="DatPhong">
+              <PropertyRef Name="PhongId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Bookings_Rooms">
-          <End Role="Rooms" Type="Self.Rooms" Multiplicity="0..1" />
-          <End Role="Bookings" Type="Self.Bookings" Multiplicity="*" />
+        <Association Name="FK_Phong_LoaiPhong">
+          <End Role="LoaiPhong" Type="Self.LoaiPhong" Multiplicity="1" />
+          <End Role="Phong" Type="Self.Phong" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Rooms">
+            <Principal Role="LoaiPhong">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Bookings">
-              <PropertyRef Name="RoomId" />
+            <Dependent Role="Phong">
+              <PropertyRef Name="LoaiPhongId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Invoices_Bookings">
-          <End Role="Bookings" Type="Self.Bookings" Multiplicity="0..1" />
-          <End Role="Invoices" Type="Self.Invoices" Multiplicity="*" />
+        <Association Name="FK_SuDungDichVu_DatPhong">
+          <End Role="DatPhong" Type="Self.DatPhong" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SuDungDichVu" Type="Self.SuDungDichVu" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Bookings">
+            <Principal Role="DatPhong">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Invoices">
-              <PropertyRef Name="BookingId" />
+            <Dependent Role="SuDungDichVu">
+              <PropertyRef Name="DatPhongId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Rooms_RoomTypes">
-          <End Role="RoomTypes" Type="Self.RoomTypes" Multiplicity="0..1" />
-          <End Role="Rooms" Type="Self.Rooms" Multiplicity="*" />
+        <Association Name="FK_SuDungDichVu_DichVu">
+          <End Role="DichVu" Type="Self.DichVu" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SuDungDichVu" Type="Self.SuDungDichVu" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="RoomTypes">
+            <Principal Role="DichVu">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Rooms">
-              <PropertyRef Name="TypeId" />
+            <Dependent Role="SuDungDichVu">
+              <PropertyRef Name="DichVuId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ServiceUsage_Bookings">
-          <End Role="Bookings" Type="Self.Bookings" Multiplicity="0..1" />
-          <End Role="ServiceUsage" Type="Self.ServiceUsage" Multiplicity="*" />
+        <Association Name="FK_TaiKhoan_KhachHang">
+          <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="0..1" />
+          <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Bookings">
+            <Principal Role="KhachHang">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="ServiceUsage">
-              <PropertyRef Name="BookingId" />
+            <Dependent Role="TaiKhoan">
+              <PropertyRef Name="KhachHangId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ServiceUsage_Services">
-          <End Role="Services" Type="Self.Services" Multiplicity="0..1" />
-          <End Role="ServiceUsage" Type="Self.ServiceUsage" Multiplicity="*" />
+        <Association Name="FK_TaiKhoan_NhanVien">
+          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="0..1" />
+          <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Services">
+            <Principal Role="NhanVien">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="ServiceUsage">
-              <PropertyRef Name="ServiceId" />
+            <Dependent Role="TaiKhoan">
+              <PropertyRef Name="NhanVienId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="QLKSModelStoreContainer">
-          <EntitySet Name="Accounts" EntityType="Self.Accounts" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Bookings" EntityType="Self.Bookings" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Invoices" EntityType="Self.Invoices" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Rooms" EntityType="Self.Rooms" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="RoomTypes" EntityType="Self.RoomTypes" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Services" EntityType="Self.Services" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ServiceUsage" EntityType="Self.ServiceUsage" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_Accounts_Customers" Association="Self.FK_Accounts_Customers">
-            <End Role="Customers" EntitySet="Customers" />
-            <End Role="Accounts" EntitySet="Accounts" />
+          <EntitySet Name="DatPhong" EntityType="Self.DatPhong" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DichVu" EntityType="Self.DichVu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KhachHang" EntityType="Self.KhachHang" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoaiPhong" EntityType="Self.LoaiPhong" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NhanVien" EntityType="Self.NhanVien" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Phong" EntityType="Self.Phong" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SuDungDichVu" EntityType="Self.SuDungDichVu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TaiKhoan" EntityType="Self.TaiKhoan" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_DatPhong_KhachHang" Association="Self.FK_DatPhong_KhachHang">
+            <End Role="KhachHang" EntitySet="KhachHang" />
+            <End Role="DatPhong" EntitySet="DatPhong" />
           </AssociationSet>
-          <AssociationSet Name="FK_Bookings_Customers" Association="Self.FK_Bookings_Customers">
-            <End Role="Customers" EntitySet="Customers" />
-            <End Role="Bookings" EntitySet="Bookings" />
+          <AssociationSet Name="FK_DatPhong_Phong" Association="Self.FK_DatPhong_Phong">
+            <End Role="Phong" EntitySet="Phong" />
+            <End Role="DatPhong" EntitySet="DatPhong" />
           </AssociationSet>
-          <AssociationSet Name="FK_Bookings_Rooms" Association="Self.FK_Bookings_Rooms">
-            <End Role="Rooms" EntitySet="Rooms" />
-            <End Role="Bookings" EntitySet="Bookings" />
+          <AssociationSet Name="FK_Phong_LoaiPhong" Association="Self.FK_Phong_LoaiPhong">
+            <End Role="LoaiPhong" EntitySet="LoaiPhong" />
+            <End Role="Phong" EntitySet="Phong" />
           </AssociationSet>
-          <AssociationSet Name="FK_Invoices_Bookings" Association="Self.FK_Invoices_Bookings">
-            <End Role="Bookings" EntitySet="Bookings" />
-            <End Role="Invoices" EntitySet="Invoices" />
+          <AssociationSet Name="FK_SuDungDichVu_DatPhong" Association="Self.FK_SuDungDichVu_DatPhong">
+            <End Role="DatPhong" EntitySet="DatPhong" />
+            <End Role="SuDungDichVu" EntitySet="SuDungDichVu" />
           </AssociationSet>
-          <AssociationSet Name="FK_Rooms_RoomTypes" Association="Self.FK_Rooms_RoomTypes">
-            <End Role="RoomTypes" EntitySet="RoomTypes" />
-            <End Role="Rooms" EntitySet="Rooms" />
+          <AssociationSet Name="FK_SuDungDichVu_DichVu" Association="Self.FK_SuDungDichVu_DichVu">
+            <End Role="DichVu" EntitySet="DichVu" />
+            <End Role="SuDungDichVu" EntitySet="SuDungDichVu" />
           </AssociationSet>
-          <AssociationSet Name="FK_ServiceUsage_Bookings" Association="Self.FK_ServiceUsage_Bookings">
-            <End Role="Bookings" EntitySet="Bookings" />
-            <End Role="ServiceUsage" EntitySet="ServiceUsage" />
+          <AssociationSet Name="FK_TaiKhoan_KhachHang" Association="Self.FK_TaiKhoan_KhachHang">
+            <End Role="KhachHang" EntitySet="KhachHang" />
+            <End Role="TaiKhoan" EntitySet="TaiKhoan" />
           </AssociationSet>
-          <AssociationSet Name="FK_ServiceUsage_Services" Association="Self.FK_ServiceUsage_Services">
-            <End Role="Services" EntitySet="Services" />
-            <End Role="ServiceUsage" EntitySet="ServiceUsage" />
+          <AssociationSet Name="FK_TaiKhoan_NhanVien" Association="Self.FK_TaiKhoan_NhanVien">
+            <End Role="NhanVien" EntitySet="NhanVien" />
+            <End Role="TaiKhoan" EntitySet="TaiKhoan" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -205,213 +225,233 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="QLKSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Account">
+        <EntityType Name="DatPhong">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Role" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="CustomerId" Type="Int32" />
-          <NavigationProperty Name="Customer" Relationship="Self.FK_Accounts_Customers" FromRole="Accounts" ToRole="Customers" />
+          <Property Name="KhachHangId" Type="Int32" Nullable="false" />
+          <Property Name="PhongId" Type="Int32" Nullable="false" />
+          <Property Name="NgayCheckin" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="NgayCheckout" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TrangThai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TongTien" Type="Decimal" Precision="18" Scale="2" />
+          <NavigationProperty Name="KhachHang" Relationship="Self.FK_DatPhong_KhachHang" FromRole="DatPhong" ToRole="KhachHang" />
+          <NavigationProperty Name="Phong" Relationship="Self.FK_DatPhong_Phong" FromRole="DatPhong" ToRole="Phong" />
+          <NavigationProperty Name="SuDungDichVus" Relationship="Self.FK_SuDungDichVu_DatPhong" FromRole="DatPhong" ToRole="SuDungDichVu" />
         </EntityType>
-        <EntityType Name="Booking">
+        <EntityType Name="DichVu">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CustomerId" Type="Int32" />
-          <Property Name="RoomId" Type="Int32" />
-          <Property Name="CheckIn" Type="DateTime" Precision="3" />
-          <Property Name="CheckOut" Type="DateTime" Precision="3" />
-          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Customer" Relationship="Self.FK_Bookings_Customers" FromRole="Bookings" ToRole="Customers" />
-          <NavigationProperty Name="Room" Relationship="Self.FK_Bookings_Rooms" FromRole="Bookings" ToRole="Rooms" />
-          <NavigationProperty Name="Invoices" Relationship="Self.FK_Invoices_Bookings" FromRole="Bookings" ToRole="Invoices" />
-          <NavigationProperty Name="ServiceUsages" Relationship="Self.FK_ServiceUsage_Bookings" FromRole="Bookings" ToRole="ServiceUsage" />
+          <Property Name="TenDichVu" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DonGia" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="DonViTinh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="SuDungDichVus" Relationship="Self.FK_SuDungDichVu_DichVu" FromRole="DichVu" ToRole="SuDungDichVu" />
         </EntityType>
-        <EntityType Name="Customer">
+        <EntityType Name="KhachHang">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
-          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Accounts" Relationship="Self.FK_Accounts_Customers" FromRole="Customers" ToRole="Accounts" />
-          <NavigationProperty Name="Bookings" Relationship="Self.FK_Bookings_Customers" FromRole="Customers" ToRole="Bookings" />
+          <Property Name="HoTen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DienThoai" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="DiaChi" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DatPhongs" Relationship="Self.FK_DatPhong_KhachHang" FromRole="KhachHang" ToRole="DatPhong" />
+          <NavigationProperty Name="TaiKhoans" Relationship="Self.FK_TaiKhoan_KhachHang" FromRole="KhachHang" ToRole="TaiKhoan" />
         </EntityType>
-        <EntityType Name="Invoice">
+        <EntityType Name="LoaiPhong">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="BookingId" Type="Int32" />
-          <Property Name="Total" Type="Decimal" Precision="12" Scale="2" />
-          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="Booking" Relationship="Self.FK_Invoices_Bookings" FromRole="Invoices" ToRole="Bookings" />
+          <Property Name="TenLoai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Gia" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="SucChua" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Phongs" Relationship="Self.FK_Phong_LoaiPhong" FromRole="LoaiPhong" ToRole="Phong" />
         </EntityType>
-        <EntityType Name="Room">
+        <EntityType Name="NhanVien">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="TypeId" Type="Int32" />
-          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Bookings" Relationship="Self.FK_Bookings_Rooms" FromRole="Rooms" ToRole="Bookings" />
-          <NavigationProperty Name="RoomType" Relationship="Self.FK_Rooms_RoomTypes" FromRole="Rooms" ToRole="RoomTypes" />
+          <Property Name="HoTen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DienThoai" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ChucVu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LuongCoBan" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="NgayVaoLam" Type="DateTime" Precision="3" />
+          <Property Name="HinhAnh" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="TrangThai" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="TaiKhoans" Relationship="Self.FK_TaiKhoan_NhanVien" FromRole="NhanVien" ToRole="TaiKhoan" />
         </EntityType>
-        <EntityType Name="RoomType">
+        <EntityType Name="Phong">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Price" Type="Decimal" Precision="10" Scale="2" />
-          <NavigationProperty Name="Rooms" Relationship="Self.FK_Rooms_RoomTypes" FromRole="RoomTypes" ToRole="Rooms" />
+          <Property Name="SoPhong" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LoaiPhongId" Type="Int32" Nullable="false" />
+          <Property Name="GiaMoiDem" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="SucChua" Type="Int32" Nullable="false" />
+          <Property Name="MoTa" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="TrangThai" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NgayCheckin" Type="DateTime" Precision="3" />
+          <Property Name="NgayCheckout" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="DatPhongs" Relationship="Self.FK_DatPhong_Phong" FromRole="Phong" ToRole="DatPhong" />
+          <NavigationProperty Name="LoaiPhong" Relationship="Self.FK_Phong_LoaiPhong" FromRole="Phong" ToRole="LoaiPhong" />
         </EntityType>
-        <EntityType Name="Service">
+        <EntityType Name="SuDungDichVu">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Price" Type="Decimal" Precision="10" Scale="2" />
-          <NavigationProperty Name="ServiceUsages" Relationship="Self.FK_ServiceUsage_Services" FromRole="Services" ToRole="ServiceUsage" />
+          <Property Name="DatPhongId" Type="Int32" Nullable="false" />
+          <Property Name="DichVuId" Type="Int32" Nullable="false" />
+          <Property Name="SoLuong" Type="Int32" Nullable="false" />
+          <Property Name="ThanhTien" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="NgaySuDung" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="DatPhong" Relationship="Self.FK_SuDungDichVu_DatPhong" FromRole="SuDungDichVu" ToRole="DatPhong" />
+          <NavigationProperty Name="DichVu" Relationship="Self.FK_SuDungDichVu_DichVu" FromRole="SuDungDichVu" ToRole="DichVu" />
         </EntityType>
-        <EntityType Name="ServiceUsage">
+        <EntityType Name="TaiKhoan">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="BookingId" Type="Int32" />
-          <Property Name="ServiceId" Type="Int32" />
-          <Property Name="Quantity" Type="Int32" />
-          <NavigationProperty Name="Booking" Relationship="Self.FK_ServiceUsage_Bookings" FromRole="ServiceUsage" ToRole="Bookings" />
-          <NavigationProperty Name="Service" Relationship="Self.FK_ServiceUsage_Services" FromRole="ServiceUsage" ToRole="Services" />
+          <Property Name="TenDangNhap" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MatKhau" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="VaiTro" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="KhachHangId" Type="Int32" />
+          <Property Name="NhanVienId" Type="Int32" />
+          <NavigationProperty Name="KhachHang" Relationship="Self.FK_TaiKhoan_KhachHang" FromRole="TaiKhoan" ToRole="KhachHang" />
+          <NavigationProperty Name="NhanVien" Relationship="Self.FK_TaiKhoan_NhanVien" FromRole="TaiKhoan" ToRole="NhanVien" />
         </EntityType>
-        <Association Name="FK_Accounts_Customers">
-          <End Role="Customers" Type="Self.Customer" Multiplicity="0..1" />
-          <End Role="Accounts" Type="Self.Account" Multiplicity="*" />
+        <Association Name="FK_DatPhong_KhachHang">
+          <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="1" />
+          <End Role="DatPhong" Type="Self.DatPhong" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Customers">
+            <Principal Role="KhachHang">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Accounts">
-              <PropertyRef Name="CustomerId" />
+            <Dependent Role="DatPhong">
+              <PropertyRef Name="KhachHangId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Bookings_Customers">
-          <End Role="Customers" Type="Self.Customer" Multiplicity="0..1" />
-          <End Role="Bookings" Type="Self.Booking" Multiplicity="*" />
+        <Association Name="FK_DatPhong_Phong">
+          <End Role="Phong" Type="Self.Phong" Multiplicity="1" />
+          <End Role="DatPhong" Type="Self.DatPhong" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Customers">
+            <Principal Role="Phong">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Bookings">
-              <PropertyRef Name="CustomerId" />
+            <Dependent Role="DatPhong">
+              <PropertyRef Name="PhongId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Bookings_Rooms">
-          <End Role="Rooms" Type="Self.Room" Multiplicity="0..1" />
-          <End Role="Bookings" Type="Self.Booking" Multiplicity="*" />
+        <Association Name="FK_SuDungDichVu_DatPhong">
+          <End Role="DatPhong" Type="Self.DatPhong" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SuDungDichVu" Type="Self.SuDungDichVu" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Rooms">
+            <Principal Role="DatPhong">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Bookings">
-              <PropertyRef Name="RoomId" />
+            <Dependent Role="SuDungDichVu">
+              <PropertyRef Name="DatPhongId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Invoices_Bookings">
-          <End Role="Bookings" Type="Self.Booking" Multiplicity="0..1" />
-          <End Role="Invoices" Type="Self.Invoice" Multiplicity="*" />
+        <Association Name="FK_SuDungDichVu_DichVu">
+          <End Role="DichVu" Type="Self.DichVu" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SuDungDichVu" Type="Self.SuDungDichVu" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Bookings">
+            <Principal Role="DichVu">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Invoices">
-              <PropertyRef Name="BookingId" />
+            <Dependent Role="SuDungDichVu">
+              <PropertyRef Name="DichVuId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ServiceUsage_Bookings">
-          <End Role="Bookings" Type="Self.Booking" Multiplicity="0..1" />
-          <End Role="ServiceUsage" Type="Self.ServiceUsage" Multiplicity="*" />
+        <Association Name="FK_TaiKhoan_KhachHang">
+          <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="0..1" />
+          <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Bookings">
+            <Principal Role="KhachHang">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="ServiceUsage">
-              <PropertyRef Name="BookingId" />
+            <Dependent Role="TaiKhoan">
+              <PropertyRef Name="KhachHangId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Rooms_RoomTypes">
-          <End Role="RoomTypes" Type="Self.RoomType" Multiplicity="0..1" />
-          <End Role="Rooms" Type="Self.Room" Multiplicity="*" />
+        <Association Name="FK_Phong_LoaiPhong">
+          <End Role="LoaiPhong" Type="Self.LoaiPhong" Multiplicity="1" />
+          <End Role="Phong" Type="Self.Phong" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="RoomTypes">
+            <Principal Role="LoaiPhong">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Rooms">
-              <PropertyRef Name="TypeId" />
+            <Dependent Role="Phong">
+              <PropertyRef Name="LoaiPhongId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ServiceUsage_Services">
-          <End Role="Services" Type="Self.Service" Multiplicity="0..1" />
-          <End Role="ServiceUsage" Type="Self.ServiceUsage" Multiplicity="*" />
+        <Association Name="FK_TaiKhoan_NhanVien">
+          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="0..1" />
+          <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Services">
+            <Principal Role="NhanVien">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="ServiceUsage">
-              <PropertyRef Name="ServiceId" />
+            <Dependent Role="TaiKhoan">
+              <PropertyRef Name="NhanVienId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="QLKSEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Accounts" EntityType="Self.Account" />
-          <EntitySet Name="Bookings" EntityType="Self.Booking" />
-          <EntitySet Name="Customers" EntityType="Self.Customer" />
-          <EntitySet Name="Invoices" EntityType="Self.Invoice" />
-          <EntitySet Name="Rooms" EntityType="Self.Room" />
-          <EntitySet Name="RoomTypes" EntityType="Self.RoomType" />
-          <EntitySet Name="Services" EntityType="Self.Service" />
-          <EntitySet Name="ServiceUsages" EntityType="Self.ServiceUsage" />
-          <AssociationSet Name="FK_Accounts_Customers" Association="Self.FK_Accounts_Customers">
-            <End Role="Customers" EntitySet="Customers" />
-            <End Role="Accounts" EntitySet="Accounts" />
+          <EntitySet Name="DatPhongs" EntityType="Self.DatPhong" />
+          <EntitySet Name="DichVus" EntityType="Self.DichVu" />
+          <EntitySet Name="KhachHangs" EntityType="Self.KhachHang" />
+          <EntitySet Name="LoaiPhongs" EntityType="Self.LoaiPhong" />
+          <EntitySet Name="NhanViens" EntityType="Self.NhanVien" />
+          <EntitySet Name="Phongs" EntityType="Self.Phong" />
+          <EntitySet Name="SuDungDichVus" EntityType="Self.SuDungDichVu" />
+          <EntitySet Name="TaiKhoans" EntityType="Self.TaiKhoan" />
+          <AssociationSet Name="FK_DatPhong_KhachHang" Association="Self.FK_DatPhong_KhachHang">
+            <End Role="KhachHang" EntitySet="KhachHangs" />
+            <End Role="DatPhong" EntitySet="DatPhongs" />
           </AssociationSet>
-          <AssociationSet Name="FK_Bookings_Customers" Association="Self.FK_Bookings_Customers">
-            <End Role="Customers" EntitySet="Customers" />
-            <End Role="Bookings" EntitySet="Bookings" />
+          <AssociationSet Name="FK_DatPhong_Phong" Association="Self.FK_DatPhong_Phong">
+            <End Role="Phong" EntitySet="Phongs" />
+            <End Role="DatPhong" EntitySet="DatPhongs" />
           </AssociationSet>
-          <AssociationSet Name="FK_Bookings_Rooms" Association="Self.FK_Bookings_Rooms">
-            <End Role="Rooms" EntitySet="Rooms" />
-            <End Role="Bookings" EntitySet="Bookings" />
+          <AssociationSet Name="FK_SuDungDichVu_DatPhong" Association="Self.FK_SuDungDichVu_DatPhong">
+            <End Role="DatPhong" EntitySet="DatPhongs" />
+            <End Role="SuDungDichVu" EntitySet="SuDungDichVus" />
           </AssociationSet>
-          <AssociationSet Name="FK_Invoices_Bookings" Association="Self.FK_Invoices_Bookings">
-            <End Role="Bookings" EntitySet="Bookings" />
-            <End Role="Invoices" EntitySet="Invoices" />
+          <AssociationSet Name="FK_SuDungDichVu_DichVu" Association="Self.FK_SuDungDichVu_DichVu">
+            <End Role="DichVu" EntitySet="DichVus" />
+            <End Role="SuDungDichVu" EntitySet="SuDungDichVus" />
           </AssociationSet>
-          <AssociationSet Name="FK_ServiceUsage_Bookings" Association="Self.FK_ServiceUsage_Bookings">
-            <End Role="Bookings" EntitySet="Bookings" />
-            <End Role="ServiceUsage" EntitySet="ServiceUsages" />
+          <AssociationSet Name="FK_TaiKhoan_KhachHang" Association="Self.FK_TaiKhoan_KhachHang">
+            <End Role="KhachHang" EntitySet="KhachHangs" />
+            <End Role="TaiKhoan" EntitySet="TaiKhoans" />
           </AssociationSet>
-          <AssociationSet Name="FK_Rooms_RoomTypes" Association="Self.FK_Rooms_RoomTypes">
-            <End Role="RoomTypes" EntitySet="RoomTypes" />
-            <End Role="Rooms" EntitySet="Rooms" />
+          <AssociationSet Name="FK_Phong_LoaiPhong" Association="Self.FK_Phong_LoaiPhong">
+            <End Role="LoaiPhong" EntitySet="LoaiPhongs" />
+            <End Role="Phong" EntitySet="Phongs" />
           </AssociationSet>
-          <AssociationSet Name="FK_ServiceUsage_Services" Association="Self.FK_ServiceUsage_Services">
-            <End Role="Services" EntitySet="Services" />
-            <End Role="ServiceUsage" EntitySet="ServiceUsages" />
+          <AssociationSet Name="FK_TaiKhoan_NhanVien" Association="Self.FK_TaiKhoan_NhanVien">
+            <End Role="NhanVien" EntitySet="NhanViens" />
+            <End Role="TaiKhoan" EntitySet="TaiKhoans" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -420,84 +460,100 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="QLKSModelStoreContainer" CdmEntityContainer="QLKSEntities">
-          <EntitySetMapping Name="Accounts">
-            <EntityTypeMapping TypeName="QLKSModel.Account">
-              <MappingFragment StoreEntitySet="Accounts">
+          <EntitySetMapping Name="DatPhongs">
+            <EntityTypeMapping TypeName="QLKSModel.DatPhong">
+              <MappingFragment StoreEntitySet="DatPhong">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Username" ColumnName="Username" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Role" ColumnName="Role" />
-                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="KhachHangId" ColumnName="KhachHangId" />
+                <ScalarProperty Name="PhongId" ColumnName="PhongId" />
+                <ScalarProperty Name="NgayCheckin" ColumnName="NgayCheckin" />
+                <ScalarProperty Name="NgayCheckout" ColumnName="NgayCheckout" />
+                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+                <ScalarProperty Name="TongTien" ColumnName="TongTien" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Bookings">
-            <EntityTypeMapping TypeName="QLKSModel.Booking">
-              <MappingFragment StoreEntitySet="Bookings">
+          <EntitySetMapping Name="DichVus">
+            <EntityTypeMapping TypeName="QLKSModel.DichVu">
+              <MappingFragment StoreEntitySet="DichVu">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
-                <ScalarProperty Name="RoomId" ColumnName="RoomId" />
-                <ScalarProperty Name="CheckIn" ColumnName="CheckIn" />
-                <ScalarProperty Name="CheckOut" ColumnName="CheckOut" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="TenDichVu" ColumnName="TenDichVu" />
+                <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+                <ScalarProperty Name="DonViTinh" ColumnName="DonViTinh" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Customers">
-            <EntityTypeMapping TypeName="QLKSModel.Customer">
-              <MappingFragment StoreEntitySet="Customers">
+          <EntitySetMapping Name="KhachHangs">
+            <EntityTypeMapping TypeName="QLKSModel.KhachHang">
+              <MappingFragment StoreEntitySet="KhachHang">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Phone" ColumnName="Phone" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+                <ScalarProperty Name="DienThoai" ColumnName="DienThoai" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Invoices">
-            <EntityTypeMapping TypeName="QLKSModel.Invoice">
-              <MappingFragment StoreEntitySet="Invoices">
+          <EntitySetMapping Name="LoaiPhongs">
+            <EntityTypeMapping TypeName="QLKSModel.LoaiPhong">
+              <MappingFragment StoreEntitySet="LoaiPhong">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="BookingId" ColumnName="BookingId" />
-                <ScalarProperty Name="Total" ColumnName="Total" />
-                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="TenLoai" ColumnName="TenLoai" />
+                <ScalarProperty Name="Gia" ColumnName="Gia" />
+                <ScalarProperty Name="SucChua" ColumnName="SucChua" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Rooms">
-            <EntityTypeMapping TypeName="QLKSModel.Room">
-              <MappingFragment StoreEntitySet="Rooms">
+          <EntitySetMapping Name="NhanViens">
+            <EntityTypeMapping TypeName="QLKSModel.NhanVien">
+              <MappingFragment StoreEntitySet="NhanVien">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="TypeId" ColumnName="TypeId" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+                <ScalarProperty Name="DienThoai" ColumnName="DienThoai" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="ChucVu" ColumnName="ChucVu" />
+                <ScalarProperty Name="LuongCoBan" ColumnName="LuongCoBan" />
+                <ScalarProperty Name="NgayVaoLam" ColumnName="NgayVaoLam" />
+                <ScalarProperty Name="HinhAnh" ColumnName="HinhAnh" />
+                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="RoomTypes">
-            <EntityTypeMapping TypeName="QLKSModel.RoomType">
-              <MappingFragment StoreEntitySet="RoomTypes">
+          <EntitySetMapping Name="Phongs">
+            <EntityTypeMapping TypeName="QLKSModel.Phong">
+              <MappingFragment StoreEntitySet="Phong">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="SoPhong" ColumnName="SoPhong" />
+                <ScalarProperty Name="LoaiPhongId" ColumnName="LoaiPhongId" />
+                <ScalarProperty Name="GiaMoiDem" ColumnName="GiaMoiDem" />
+                <ScalarProperty Name="SucChua" ColumnName="SucChua" />
+                <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+                <ScalarProperty Name="NgayCheckin" ColumnName="NgayCheckin" />
+                <ScalarProperty Name="NgayCheckout" ColumnName="NgayCheckout" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Services">
-            <EntityTypeMapping TypeName="QLKSModel.Service">
-              <MappingFragment StoreEntitySet="Services">
+          <EntitySetMapping Name="SuDungDichVus">
+            <EntityTypeMapping TypeName="QLKSModel.SuDungDichVu">
+              <MappingFragment StoreEntitySet="SuDungDichVu">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="DatPhongId" ColumnName="DatPhongId" />
+                <ScalarProperty Name="DichVuId" ColumnName="DichVuId" />
+                <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+                <ScalarProperty Name="ThanhTien" ColumnName="ThanhTien" />
+                <ScalarProperty Name="NgaySuDung" ColumnName="NgaySuDung" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ServiceUsages">
-            <EntityTypeMapping TypeName="QLKSModel.ServiceUsage">
-              <MappingFragment StoreEntitySet="ServiceUsage">
+          <EntitySetMapping Name="TaiKhoans">
+            <EntityTypeMapping TypeName="QLKSModel.TaiKhoan">
+              <MappingFragment StoreEntitySet="TaiKhoan">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="BookingId" ColumnName="BookingId" />
-                <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
-                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="TenDangNhap" ColumnName="TenDangNhap" />
+                <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+                <ScalarProperty Name="VaiTro" ColumnName="VaiTro" />
+                <ScalarProperty Name="KhachHangId" ColumnName="KhachHangId" />
+                <ScalarProperty Name="NhanVienId" ColumnName="NhanVienId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

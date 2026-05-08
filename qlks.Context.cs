@@ -25,13 +25,13 @@ namespace qlks_app
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Account> Accounts { get; set; }
-        public virtual DbSet<Booking> Bookings { get; set; }
-        public virtual DbSet<Customer> Customers { get; set; }
-        public virtual DbSet<Invoice> Invoices { get; set; }
-        public virtual DbSet<Room> Rooms { get; set; }
-        public virtual DbSet<RoomType> RoomTypes { get; set; }
-        public virtual DbSet<Service> Services { get; set; }
-        public virtual DbSet<ServiceUsage> ServiceUsages { get; set; }
+        public virtual DbSet<DatPhong> DatPhongs { get; set; }
+        public virtual DbSet<DichVu> DichVus { get; set; }
+        public virtual DbSet<KhachHang> KhachHangs { get; set; }
+        public virtual DbSet<LoaiPhong> LoaiPhongs { get; set; }
+        public virtual DbSet<NhanVien> NhanViens { get; set; }
+        public virtual DbSet<Phong> Phongs { get; set; }
+        public virtual DbSet<SuDungDichVu> SuDungDichVus { get; set; }
+        public virtual DbSet<TaiKhoan> TaiKhoans { get; set; }
     }
 }

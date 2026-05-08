@@ -67,22 +67,29 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Account.cs">
-      <DependentUpon>qlks.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Booking.cs">
-      <DependentUpon>qlks.tt</DependentUpon>
-    </Compile>
     <Compile Include="commands\RelayCommand.cs" />
-    <Compile Include="Customer.cs">
+    <Compile Include="DatPhong.cs">
       <DependentUpon>qlks.tt</DependentUpon>
     </Compile>
-    <Compile Include="Invoice.cs">
+    <Compile Include="DichVu.cs">
+      <DependentUpon>qlks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhachHang.cs">
+      <DependentUpon>qlks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoaiPhong.cs">
       <DependentUpon>qlks.tt</DependentUpon>
     </Compile>
     <Compile Include="models\LoaiPhong.cs" />
     <Compile Include="models\NhanVien.cs" />
     <Compile Include="models\Phong.cs" />
+    <Compile Include="NhanVien.cs">
+      <DependentUpon>qlks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Phong.cs">
+      <DependentUpon>qlks.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Phong.Extensions.cs" />
     <Compile Include="qlks.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -98,16 +105,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>qlks.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Room.cs">
+    <Compile Include="SuDungDichVu.cs">
       <DependentUpon>qlks.tt</DependentUpon>
     </Compile>
-    <Compile Include="RoomType.cs">
-      <DependentUpon>qlks.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Service.cs">
-      <DependentUpon>qlks.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ServiceUsage.cs">
+    <Compile Include="TaiKhoan.cs">
       <DependentUpon>qlks.tt</DependentUpon>
     </Compile>
     <Compile Include="views\KhachHang_View.xaml.cs">
@@ -126,11 +127,11 @@
       <DependentUpon>QuanLiPhong_View.xaml</DependentUpon>
     </Compile>
     <Compile Include="view_model\BaseViewModel.cs" />
+    <Compile Include="view_model\KhachHang_ViewModel.cs" />
     <Compile Include="view_model\Login_ViewModel.cs" />
     <Compile Include="view_model\NhanVienManagement_ViewModel.cs" />
     <Compile Include="view_model\QuanTri_ViewModel.cs" />
     <Compile Include="view_model\QuanLiPhong_ViewModel.cs" />
-    <Compile Include="view_model\RoomManagement_ViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

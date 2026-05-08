@@ -1,15 +1,17 @@
 using System;
 using System.Collections.ObjectModel;
+using System.Data.Entity;
+using System.Globalization;
 using System.Linq;
 using System.Windows;
 using System.Windows.Media;
 using qlks_app.commands;
-using qlks_app.models;
 
 namespace qlks_app.view_model
 {
     public class QuanLiPhong_ViewModel : BaseViewModel
     {
+        private readonly QLKSEntities _db = new QLKSEntities();
         private bool _hienThiForm;
         private bool _dangSua;
         private Phong _phongDangChon;
@@ -29,13 +31,7 @@ namespace qlks_app.view_model
 
         public ObservableCollection<Phong> DanhSachPhong { get; } = new ObservableCollection<Phong>();
 
-        public ObservableCollection<LoaiPhong> DanhSachLoaiPhong { get; } = new ObservableCollection<LoaiPhong>
-        {
-            new LoaiPhong { TenLoai = "Standard", GiaMoiDem = 500000, SucChua = 2, MoTa = "Phòng tiêu chuẩn" },
-            new LoaiPhong { TenLoai = "Deluxe", GiaMoiDem = 800000, SucChua = 3, MoTa = "Phòng cao cấp" },
-            new LoaiPhong { TenLoai = "VIP", GiaMoiDem = 1200000, SucChua = 4, MoTa = "Phòng VIP" },
-            new LoaiPhong { TenLoai = "Suite", GiaMoiDem = 2000000, SucChua = 4, MoTa = "Phòng Suite" }
-        };
+        public ObservableCollection<LoaiPhong> DanhSachLoaiPhong { get; } = new ObservableCollection<LoaiPhong>();
 
         public ObservableCollection<string> DanhSachTrangThai { get; } = new ObservableCollection<string>
         {
@@ -96,9 +92,8 @@ namespace qlks_app.view_model
                 if (value != null)
                 {
                     LoaiPhong = value.TenLoai;
-                    GiaMoiDem = value.GiaMoiDem.ToString("N0");
+                    GiaMoiDem = value.Gia.ToString("N0", CultureInfo.CurrentCulture);
                     SucChua = value.SucChua.ToString();
-                    MoTa = value.MoTa;
                 }
             }
         }
@@ -212,6 +207,9 @@ namespace qlks_app.view_model
 
         public QuanLiPhong_ViewModel()
         {
+            TaiDuLieuLoaiPhong();
+            TaiDuLieuPhong();
+
             ThemPhongCommand = new RelayCommand(o =>
             {
                 _dangSua = false;
@@ -230,10 +228,9 @@ namespace qlks_app.view_model
 
                 _dangSua = true;
                 SoPhong = PhongDangChon.SoPhong;
-                LoaiPhongDuocChon = DanhSachLoaiPhong.FirstOrDefault(p =>
-                    string.Equals(p.TenLoai, PhongDangChon.LoaiPhong, StringComparison.OrdinalIgnoreCase));
-                GiaMoiDem = PhongDangChon.GiaMoiDem;
-                SucChua = PhongDangChon.SucChua;
+                LoaiPhongDuocChon = DanhSachLoaiPhong.FirstOrDefault(p => p.Id == PhongDangChon.LoaiPhongId);
+                GiaMoiDem = PhongDangChon.GiaMoiDem.ToString("N0", CultureInfo.CurrentCulture);
+                SucChua = PhongDangChon.SucChua.ToString();
                 MoTa = PhongDangChon.MoTa;
                 TrangThai = PhongDangChon.TrangThai;
                 NgayCheckin = PhongDangChon.NgayCheckin;
@@ -250,8 +247,21 @@ namespace qlks_app.view_model
                     return;
                 }
 
-                DanhSachPhong.Remove(PhongDangChon);
-                CapNhatThongKe();
+                if (!string.Equals(PhongDangChon.TrangThai, "Trống", StringComparison.OrdinalIgnoreCase))
+                {
+                    MessageBox.Show("Chỉ được xóa phòng đang trống");
+                    return;
+                }
+
+                if (PhongDangChon.DatPhongs != null && PhongDangChon.DatPhongs.Any())
+                {
+                    MessageBox.Show("Không thể xóa phòng đã có lịch đặt");
+                    return;
+                }
+
+                _db.Phongs.Remove(PhongDangChon);
+                _db.SaveChanges();
+                TaiDuLieuPhong();
             });
 
             LuuPhongCommand = new RelayCommand(o =>
@@ -262,7 +272,9 @@ namespace qlks_app.view_model
                     return;
                 }
 
-                if (string.Equals(TrangThai, "Đã đặt", StringComparison.OrdinalIgnoreCase) && !NgayCheckin.HasValue)
+                if ((string.Equals(TrangThai, "Đã đặt", StringComparison.OrdinalIgnoreCase)
+                        || string.Equals(TrangThai, "Đang ở", StringComparison.OrdinalIgnoreCase))
+                    && !NgayCheckin.HasValue)
                 {
                     MessageBox.Show("Vui lòng chọn ngày khách đến checkin");
                     return;
@@ -274,65 +286,73 @@ namespace qlks_app.view_model
                     return;
                 }
 
+                if (LoaiPhongDuocChon == null)
+                {
+                    MessageBox.Show("Vui lòng chọn loại phòng");
+                    return;
+                }
+
+                if (!decimal.TryParse(GiaMoiDem, NumberStyles.Any, CultureInfo.CurrentCulture, out var giaMoiDem))
+                {
+                    MessageBox.Show("Giá mỗi đêm không hợp lệ");
+                    return;
+                }
+
+                if (!int.TryParse(SucChua, out var sucChua))
+                {
+                    MessageBox.Show("Sức chứa không hợp lệ");
+                    return;
+                }
+
                 if (_dangSua && PhongDangChon != null)
                 {
                     PhongDangChon.SoPhong = SoPhong;
-                    PhongDangChon.LoaiPhong = LoaiPhong;
-                    PhongDangChon.GiaMoiDem = GiaMoiDem;
-                    PhongDangChon.SucChua = SucChua;
+                    PhongDangChon.LoaiPhongId = LoaiPhongDuocChon.Id;
+                    PhongDangChon.GiaMoiDem = giaMoiDem;
+                    PhongDangChon.SucChua = sucChua;
                     PhongDangChon.MoTa = MoTa;
                     PhongDangChon.TrangThai = TrangThai;
                     PhongDangChon.NgayCheckin = string.Equals(TrangThai, "Đã đặt", StringComparison.OrdinalIgnoreCase)
+                            || string.Equals(TrangThai, "Đang ở", StringComparison.OrdinalIgnoreCase)
                         ? NgayCheckin
                         : null;
                     PhongDangChon.NgayCheckout = string.Equals(TrangThai, "Đã đặt", StringComparison.OrdinalIgnoreCase)
+                            || string.Equals(TrangThai, "Đang ở", StringComparison.OrdinalIgnoreCase)
                         ? NgayCheckout
                         : null;
-                    PhongDangChon.MauTrangThai = MauTheoTrangThai(TrangThai);
+                    _db.SaveChanges();
                 }
                 else
                 {
-                    var nextId = DanhSachPhong.Count == 0 ? 1 : DanhSachPhong.Max(p => p.MaPhong) + 1;
-                    DanhSachPhong.Add(new Phong
+                    var phongMoi = new Phong
                     {
-                        MaPhong = nextId,
                         SoPhong = SoPhong,
-                        LoaiPhong = LoaiPhong,
-                        GiaMoiDem = GiaMoiDem,
-                        SucChua = SucChua,
+                        LoaiPhongId = LoaiPhongDuocChon.Id,
+                        GiaMoiDem = giaMoiDem,
+                        SucChua = sucChua,
                         MoTa = MoTa,
                         TrangThai = TrangThai,
                         NgayCheckin = string.Equals(TrangThai, "Đã đặt", StringComparison.OrdinalIgnoreCase)
+                                || string.Equals(TrangThai, "Đang ở", StringComparison.OrdinalIgnoreCase)
                             ? NgayCheckin
                             : null,
                         NgayCheckout = string.Equals(TrangThai, "Đã đặt", StringComparison.OrdinalIgnoreCase)
+                                || string.Equals(TrangThai, "Đang ở", StringComparison.OrdinalIgnoreCase)
                             ? NgayCheckout
-                            : null,
-                        MauTrangThai = MauTheoTrangThai(TrangThai)
-                    });
+                            : null
+                    };
+
+                    _db.Phongs.Add(phongMoi);
+                    _db.SaveChanges();
                 }
 
                 HienThiForm = false;
-                CapNhatThongKe();
+                TaiDuLieuPhong();
             });
 
             HuyPhongCommand = new RelayCommand(o =>
             {
                 HienThiForm = false;
-            });
-
-            DanhSachPhong.Add(new Phong
-            {
-                MaPhong = 101,
-                SoPhong = "101",
-                LoaiPhong = "Phòng Standard",
-                GiaMoiDem = "500.000",
-                SucChua = "2",
-                TrangThai = "Trống",
-                MoTa = "Phòng tiêu chuẩn",
-                NgayCheckin = null,
-                NgayCheckout = null,
-                MauTrangThai = MauTheoTrangThai("Trống")
             });
 
             CapNhatThongKe();
@@ -346,6 +366,48 @@ namespace qlks_app.view_model
             NgayCheckin = null;
             NgayCheckout = null;
             CapNhatChoPhepChinhSuaNgay();
+        }
+
+        private void TaiDuLieuLoaiPhong()
+        {
+            var loaiPhong = _db.LoaiPhongs.ToList();
+            DanhSachLoaiPhong.Clear();
+            foreach (var item in loaiPhong)
+            {
+                DanhSachLoaiPhong.Add(item);
+            }
+
+            LoaiPhongDuocChon = DanhSachLoaiPhong.FirstOrDefault();
+        }
+
+        private void TaiDuLieuPhong()
+        {
+            var phong = _db.Phongs
+                .Include(p => p.LoaiPhong)
+                .Include(p => p.DatPhongs)
+                .ToList();
+
+            DanhSachPhong.Clear();
+            foreach (var item in phong)
+            {
+                if (string.Equals(item.TrangThai, "Đã đặt", StringComparison.OrdinalIgnoreCase)
+                    || string.Equals(item.TrangThai, "Đang ở", StringComparison.OrdinalIgnoreCase))
+                {
+                    var datPhong = item.DatPhongs
+                        .OrderByDescending(dp => dp.NgayCheckin)
+                        .FirstOrDefault();
+
+                    if (datPhong != null)
+                    {
+                        item.NgayCheckin = datPhong.NgayCheckin;
+                        item.NgayCheckout = datPhong.NgayCheckout;
+                    }
+                }
+
+                DanhSachPhong.Add(item);
+            }
+
+            CapNhatThongKe();
         }
 
         private void CapNhatThongKe()

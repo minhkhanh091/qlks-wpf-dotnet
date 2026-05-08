@@ -56,9 +56,9 @@ namespace qlks_app.view_model
                 try
                 {
                     var db = new QLKSEntities();
-                    var account = db.Accounts.FirstOrDefault(a =>
-                        a.Username == tenTaiKhoan &&
-                        a.Password == matKhau);
+                    var account = db.TaiKhoans.FirstOrDefault(a =>
+                        a.TenDangNhap == tenTaiKhoan &&
+                        a.MatKhau == matKhau);
 
                     if (account == null)
                     {
@@ -66,20 +66,24 @@ namespace qlks_app.view_model
                         return;
                     }
 
-                    var selectedRole = vaiTro;
-                    var accountRole = account.Role;
+                    var selectedRole = NormalizeRole(vaiTro);
+                    var accountRole = NormalizeRole(account.VaiTro);
 
-                    if (selectedRole != accountRole)
+                    if (!string.Equals(selectedRole, accountRole, StringComparison.OrdinalIgnoreCase))
                     {
                         MessageBox.Show("Vai trò đăng nhập không đúng");
                         return;
                     }
 
-                    if (accountRole == "QUANTRI")
+                    if (string.Equals(accountRole, "ADMIN", StringComparison.OrdinalIgnoreCase))
                     {
                         new views.QuanTri_View().Show();
                     }
-                    else if (accountRole == "KHACHHANG")
+                    else if (string.Equals(accountRole, "NHANVIEN", StringComparison.OrdinalIgnoreCase))
+                    {
+                        new views.QuanTri_View().Show();
+                    }
+                    else if (string.Equals(accountRole, "KHACHHANG", StringComparison.OrdinalIgnoreCase))
                     {
                         new views.KhachHang_View().Show();
                     }
@@ -103,6 +107,22 @@ namespace qlks_app.view_model
             HuyCommand = new RelayCommand(o => {
                 Application.Current.Shutdown();
             });
+        }
+
+        private string NormalizeRole(string role)
+        {
+            if (string.IsNullOrWhiteSpace(role))
+                return string.Empty;
+
+            var normalized = role.Trim().ToLowerInvariant();
+            if (normalized == "admin" || normalized == "quản trị" || normalized == "quan tri")
+                return "ADMIN";
+            if (normalized == "nhân viên" || normalized == "nhan vien" || normalized == "le tan")
+                return "NHANVIEN"; // Consistent with stored role names
+            if (normalized == "khách hàng" || normalized == "khach hang")
+                return "KHACHHANG";
+
+            return role.Trim().ToUpperInvariant();
         }
     }
 }

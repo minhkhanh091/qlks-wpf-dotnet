@@ -37,7 +37,8 @@
                 <!-- Role Selection -->
                 <TextBlock Text="Đăng nhập với vai trò"/>
                 <ComboBox Height="30" Margin="0,5,0,15" SelectedValue="{Binding vaiTro}" SelectedValuePath="Content">
-                    <ComboBoxItem Content="Quản trị"/>
+                    <ComboBoxItem Content="Admin"/>
+                    <ComboBoxItem Content="Nhân viên"/>
                     <ComboBoxItem Content="Khách hàng"/>
                 </ComboBox>
 

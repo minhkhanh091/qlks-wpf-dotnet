@@ -238,10 +238,10 @@
 						  SelectedItem="{Binding PhongDangChon, Mode=TwoWay}">
 
 					<DataGrid.Columns>
-                   <DataGridTextColumn Header="Mã phòng" Binding="{Binding MaPhong}" Width="80"/>
+                   <DataGridTextColumn Header="Mã phòng" Binding="{Binding Id}" Width="80"/>
 					<DataGridTextColumn Header="Số phòng" Binding="{Binding SoPhong}" Width="100"/>
-					<DataGridTextColumn Header="Loại phòng" Binding="{Binding LoaiPhong}" Width="120"/>
-					<DataGridTextColumn Header="Giá/đêm" Binding="{Binding GiaMoiDem}" Width="120"/>
+					<DataGridTextColumn Header="Loại phòng" Binding="{Binding LoaiPhong.TenLoai}" Width="120"/>
+					<DataGridTextColumn Header="Giá/đêm" Binding="{Binding GiaMoiDem, StringFormat=N0}" Width="120"/>
 					<DataGridTextColumn Header="Sức chứa" Binding="{Binding SucChua}" Width="80"/>
 						<DataGridTemplateColumn Header="Trạng thái" Width="120">
 							<DataGridTemplateColumn.CellTemplate>

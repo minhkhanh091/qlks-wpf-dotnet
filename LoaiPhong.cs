@@ -12,27 +12,20 @@ namespace qlks_app
     using System;
     using System.Collections.Generic;
     
-    public partial class Booking
+    public partial class LoaiPhong
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Booking()
+        public LoaiPhong()
         {
-            this.Invoices = new HashSet<Invoice>();
-            this.ServiceUsages = new HashSet<ServiceUsage>();
+            this.Phongs = new HashSet<Phong>();
         }
     
         public int Id { get; set; }
-        public Nullable<int> CustomerId { get; set; }
-        public Nullable<int> RoomId { get; set; }
-        public Nullable<System.DateTime> CheckIn { get; set; }
-        public Nullable<System.DateTime> CheckOut { get; set; }
-        public string Status { get; set; }
+        public string TenLoai { get; set; }
+        public decimal Gia { get; set; }
+        public int SucChua { get; set; }
     
-        public virtual Customer Customer { get; set; }
-        public virtual Room Room { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Invoice> Invoices { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ServiceUsage> ServiceUsages { get; set; }
+        public virtual ICollection<Phong> Phongs { get; set; }
     }
 }

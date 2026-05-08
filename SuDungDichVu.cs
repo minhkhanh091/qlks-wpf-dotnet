@@ -12,19 +12,16 @@ namespace qlks_app
     using System;
     using System.Collections.Generic;
     
-    public partial class RoomType
+    public partial class SuDungDichVu
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public RoomType()
-        {
-            this.Rooms = new HashSet<Room>();
-        }
-    
         public int Id { get; set; }
-        public string Name { get; set; }
-        public Nullable<decimal> Price { get; set; }
+        public int DatPhongId { get; set; }
+        public int DichVuId { get; set; }
+        public int SoLuong { get; set; }
+        public decimal ThanhTien { get; set; }
+        public Nullable<System.DateTime> NgaySuDung { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Room> Rooms { get; set; }
+        public virtual DatPhong DatPhong { get; set; }
+        public virtual DichVu DichVu { get; set; }
     }
 }

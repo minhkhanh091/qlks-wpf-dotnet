@@ -12,19 +12,25 @@ namespace qlks_app
     using System;
     using System.Collections.Generic;
     
-    public partial class Service
+    public partial class DatPhong
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Service()
+        public DatPhong()
         {
-            this.ServiceUsages = new HashSet<ServiceUsage>();
+            this.SuDungDichVus = new HashSet<SuDungDichVu>();
         }
     
         public int Id { get; set; }
-        public string Name { get; set; }
-        public Nullable<decimal> Price { get; set; }
+        public int KhachHangId { get; set; }
+        public int PhongId { get; set; }
+        public System.DateTime NgayCheckin { get; set; }
+        public System.DateTime NgayCheckout { get; set; }
+        public string TrangThai { get; set; }
+        public Nullable<decimal> TongTien { get; set; }
     
+        public virtual KhachHang KhachHang { get; set; }
+        public virtual Phong Phong { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ServiceUsage> ServiceUsages { get; set; }
+        public virtual ICollection<SuDungDichVu> SuDungDichVus { get; set; }
     }
 }
