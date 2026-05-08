@@ -37,8 +37,7 @@ namespace qlks_app.view_model
 
             ShowServiceManagementCommand = new RelayCommand(o =>
             {
-                Current = null;
-                MessageBox.Show("Chức năng quản lý dịch vụ đang phát triển");
+                Current = new views.QuanLiDichVu_View();
             });
 
             ShowEmployeeManagementCommand = new RelayCommand(o =>

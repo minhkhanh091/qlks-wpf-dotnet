@@ -31,3 +31,13 @@ C:\Users\khanh\Desktop\_git\qlks-wpf-dotnet\obj\Debug\views\NhanVienManagement_V
 C:\Users\khanh\Desktop\_git\qlks-wpf-dotnet\obj\Debug\views\NhanVienManagement_View.g.cs
 C:\Users\khanh\Desktop\_git\qlks-wpf-dotnet\obj\Debug\views\QuanLiPhong_View.g.cs
 C:\Users\khanh\Desktop\_git\qlks-wpf-dotnet\obj\Debug\views\QuanLiPhong_View.baml
+C:\Users\khanh\Desktop\_git\qlks-wpf-dotnet\obj\Debug\views\NhanVien_View.g.cs
+C:\Users\khanh\Desktop\_git\qlks-wpf-dotnet\obj\Debug\views\NhanVien_View.baml
+C:\Users\khanh\Desktop\_git\qlks-wpf-dotnet\obj\Debug\views\NhanVienDatPhongTrucTiep_View.baml
+C:\Users\khanh\Desktop\_git\qlks-wpf-dotnet\obj\Debug\views\NhanVienTraPhong_View.baml
+C:\Users\khanh\Desktop\_git\qlks-wpf-dotnet\obj\Debug\views\NhanVienXacNhanDatPhong_View.baml
+C:\Users\khanh\Desktop\_git\qlks-wpf-dotnet\obj\Debug\views\NhanVienDatPhongTrucTiep_View.g.cs
+C:\Users\khanh\Desktop\_git\qlks-wpf-dotnet\obj\Debug\views\NhanVienTraPhong_View.g.cs
+C:\Users\khanh\Desktop\_git\qlks-wpf-dotnet\obj\Debug\views\NhanVienXacNhanDatPhong_View.g.cs
+C:\Users\khanh\Desktop\_git\qlks-wpf-dotnet\obj\Debug\views\QuanLiDichVu_View.baml
+C:\Users\khanh\Desktop\_git\qlks-wpf-dotnet\obj\Debug\views\QuanLiDichVu_View.g.cs

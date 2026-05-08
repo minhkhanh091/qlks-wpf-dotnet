@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Globalization;
 using System.Linq;
 using System.Windows;
+using System.Windows.Input;
 using System.Windows.Media;
 using qlks_app.commands;
 
@@ -28,10 +29,16 @@ namespace qlks_app.view_model
         private int _soPhongTrong;
         private int _soPhongDaDat;
         private bool _choPhepChinhSuaNgay;
+        private bool _hienThiChiTiet;
+        private bool _hienThiDichVu;
+        private DatPhong _datPhongChiTiet;
+        private KhachHang _khachHangChiTiet;
 
         public ObservableCollection<Phong> DanhSachPhong { get; } = new ObservableCollection<Phong>();
 
         public ObservableCollection<LoaiPhong> DanhSachLoaiPhong { get; } = new ObservableCollection<LoaiPhong>();
+
+        public ObservableCollection<SuDungDichVu> DanhSachDichVu { get; } = new ObservableCollection<SuDungDichVu>();
 
         public ObservableCollection<string> DanhSachTrangThai { get; } = new ObservableCollection<string>
         {
@@ -48,6 +55,52 @@ namespace qlks_app.view_model
             {
                 _phongDangChon = value;
                 OnPropertyChanged(nameof(PhongDangChon));
+                if (!CoTheXemChiTiet())
+                {
+                    AnChiTietPhong();
+                }
+
+                CommandManager.InvalidateRequerySuggested();
+            }
+        }
+
+        public bool HienThiDichVu
+        {
+            get { return _hienThiDichVu; }
+            set
+            {
+                _hienThiDichVu = value;
+                OnPropertyChanged(nameof(HienThiDichVu));
+            }
+        }
+
+        public bool HienThiChiTiet
+        {
+            get { return _hienThiChiTiet; }
+            set
+            {
+                _hienThiChiTiet = value;
+                OnPropertyChanged(nameof(HienThiChiTiet));
+            }
+        }
+
+        public DatPhong DatPhongChiTiet
+        {
+            get { return _datPhongChiTiet; }
+            set
+            {
+                _datPhongChiTiet = value;
+                OnPropertyChanged(nameof(DatPhongChiTiet));
+            }
+        }
+
+        public KhachHang KhachHangChiTiet
+        {
+            get { return _khachHangChiTiet; }
+            set
+            {
+                _khachHangChiTiet = value;
+                OnPropertyChanged(nameof(KhachHangChiTiet));
             }
         }
 
@@ -202,8 +255,10 @@ namespace qlks_app.view_model
         public RelayCommand ThemPhongCommand { get; }
         public RelayCommand SuaPhongCommand { get; }
         public RelayCommand XoaPhongCommand { get; }
+        public RelayCommand ChiTietPhongCommand { get; }
         public RelayCommand LuuPhongCommand { get; }
         public RelayCommand HuyPhongCommand { get; }
+        public RelayCommand DongChiTietCommand { get; }
 
         public QuanLiPhong_ViewModel()
         {
@@ -263,6 +318,8 @@ namespace qlks_app.view_model
                 _db.SaveChanges();
                 TaiDuLieuPhong();
             });
+
+            ChiTietPhongCommand = new RelayCommand(o => HienThiChiTietPhong(), o => CoTheXemChiTiet());
 
             LuuPhongCommand = new RelayCommand(o =>
             {
@@ -355,6 +412,8 @@ namespace qlks_app.view_model
                 HienThiForm = false;
             });
 
+            DongChiTietCommand = new RelayCommand(o => AnChiTietPhong());
+
             CapNhatThongKe();
         }
 
@@ -384,20 +443,31 @@ namespace qlks_app.view_model
         {
             var phong = _db.Phongs
                 .Include(p => p.LoaiPhong)
-                .Include(p => p.DatPhongs)
+                .Include("DatPhongs.KhachHang")
+                .Include("DatPhongs.SuDungDichVus.DichVu")
                 .ToList();
 
             DanhSachPhong.Clear();
             foreach (var item in phong)
             {
-                if (string.Equals(item.TrangThai, "Đã đặt", StringComparison.OrdinalIgnoreCase)
-                    || string.Equals(item.TrangThai, "Đang ở", StringComparison.OrdinalIgnoreCase))
-                {
-                    var datPhong = item.DatPhongs
-                        .OrderByDescending(dp => dp.NgayCheckin)
-                        .FirstOrDefault();
+                var datPhong = item.DatPhongs
+                    .OrderByDescending(dp => dp.NgayCheckin)
+                    .FirstOrDefault();
 
-                    if (datPhong != null)
+                if (datPhong != null)
+                {
+                    if (string.Equals(datPhong.TrangThai, "Chờ xác nhận", StringComparison.OrdinalIgnoreCase)
+                        || string.Equals(datPhong.TrangThai, "Đã xác nhận", StringComparison.OrdinalIgnoreCase))
+                    {
+                        item.TrangThai = "Đã đặt";
+                    }
+                    else if (string.Equals(datPhong.TrangThai, "Đã nhận phòng", StringComparison.OrdinalIgnoreCase))
+                    {
+                        item.TrangThai = "Đang ở";
+                    }
+
+                    if (string.Equals(item.TrangThai, "Đã đặt", StringComparison.OrdinalIgnoreCase)
+                        || string.Equals(item.TrangThai, "Đang ở", StringComparison.OrdinalIgnoreCase))
                     {
                         item.NgayCheckin = datPhong.NgayCheckin;
                         item.NgayCheckout = datPhong.NgayCheckout;
@@ -408,6 +478,7 @@ namespace qlks_app.view_model
             }
 
             CapNhatThongKe();
+            AnChiTietPhong();
         }
 
         private void CapNhatThongKe()
@@ -432,6 +503,58 @@ namespace qlks_app.view_model
         private void CapNhatChoPhepChinhSuaNgay()
         {
             ChoPhepChinhSuaNgay = _dangSua;
+        }
+
+        private bool CoTheXemChiTiet()
+        {
+            return PhongDangChon != null
+                && (string.Equals(PhongDangChon.TrangThai, "Đã đặt", StringComparison.OrdinalIgnoreCase)
+                    || string.Equals(PhongDangChon.TrangThai, "Đang ở", StringComparison.OrdinalIgnoreCase));
+        }
+
+        private void HienThiChiTietPhong()
+        {
+            if (!CoTheXemChiTiet())
+            {
+                MessageBox.Show("Chỉ xem chi tiết với phòng đã đặt hoặc đang ở");
+                return;
+            }
+
+            var datPhong = PhongDangChon.DatPhongs
+                .OrderByDescending(dp => dp.NgayCheckin)
+                .FirstOrDefault();
+
+            if (datPhong == null)
+            {
+                MessageBox.Show("Không tìm thấy thông tin đặt phòng");
+                return;
+            }
+
+            DatPhongChiTiet = datPhong;
+            KhachHangChiTiet = datPhong.KhachHang;
+
+            DanhSachDichVu.Clear();
+            if (string.Equals(PhongDangChon.TrangThai, "Đang ở", StringComparison.OrdinalIgnoreCase)
+                && datPhong.SuDungDichVus != null)
+            {
+                foreach (var item in datPhong.SuDungDichVus)
+                {
+                    DanhSachDichVu.Add(item);
+                }
+            }
+
+            HienThiDichVu = string.Equals(PhongDangChon.TrangThai, "Đang ở", StringComparison.OrdinalIgnoreCase);
+
+            HienThiChiTiet = true;
+        }
+
+        private void AnChiTietPhong()
+        {
+            HienThiChiTiet = false;
+            HienThiDichVu = false;
+            DatPhongChiTiet = null;
+            KhachHangChiTiet = null;
+            DanhSachDichVu.Clear();
         }
     }
 

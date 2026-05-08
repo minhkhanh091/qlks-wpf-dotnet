@@ -81,7 +81,7 @@ namespace qlks_app.view_model
                     }
                     else if (string.Equals(accountRole, "NHANVIEN", StringComparison.OrdinalIgnoreCase))
                     {
-                        new views.QuanTri_View().Show();
+                        new views.NhanVien_View().Show();
                     }
                     else if (string.Equals(accountRole, "KHACHHANG", StringComparison.OrdinalIgnoreCase))
                     {

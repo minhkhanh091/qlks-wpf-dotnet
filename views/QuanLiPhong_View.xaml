@@ -88,11 +88,11 @@
 		<Border Grid.Row="1" Background="White" CornerRadius="10"
                 Padding="20" Margin="0,0,0,20">
 			<Grid>
-				<Grid.RowDefinitions>
-                      <RowDefinition Height="Auto"/>
+               <Grid.RowDefinitions>
+					  <RowDefinition Height="Auto"/>
 						<RowDefinition Height="Auto"/>
 						<RowDefinition Height="Auto"/>
-					<RowDefinition Height="Auto"/>
+						<RowDefinition Height="Auto"/>
 				</Grid.RowDefinitions>
 
 				<!-- Button Toolbar -->
@@ -119,6 +119,14 @@
 						<StackPanel Orientation="Horizontal">
 							<TextBlock Text="🗑️ " FontSize="14"/>
 							<TextBlock Text="Xóa" FontSize="13"/>
+						</StackPanel>
+					</Button>
+
+					<Button x:Name="BtnDetailRoom" Command="{Binding ChiTietPhongCommand}"
+							Style="{StaticResource PrimaryButton}" Width="110">
+						<StackPanel Orientation="Horizontal">
+							<TextBlock Text="ℹ️ " FontSize="14"/>
+							<TextBlock Text="Chi tiết" FontSize="13"/>
 						</StackPanel>
 					</Button>
 
@@ -260,7 +268,89 @@
                         <DataGridTextColumn Header="Ngày checkin" Binding="{Binding NgayCheckin, StringFormat=dd/MM/yyyy}" Width="120"/>
 						<DataGridTextColumn Header="Ngày checkout" Binding="{Binding NgayCheckout, StringFormat=dd/MM/yyyy}" Width="120"/>
 					</DataGrid.Columns>
-				</DataGrid>
+             </DataGrid>
+
+				<Border Grid.Row="3" Background="#F8F9FA" CornerRadius="8"
+						Padding="15" Margin="0,15,0,0"
+						BorderBrush="#E0E0E0" BorderThickness="1"
+						Visibility="{Binding HienThiChiTiet, Converter={StaticResource BooleanToVisibilityConverter}}">
+					<StackPanel>
+						<TextBlock Text="ℹ️ CHI TIẾT PHÒNG" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
+
+                        <Grid Margin="0,0,0,10">
+							<Grid.RowDefinitions>
+								<RowDefinition Height="Auto"/>
+								<RowDefinition Height="Auto"/>
+							</Grid.RowDefinitions>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="120"/>
+								<ColumnDefinition Width="*"/>
+								<ColumnDefinition Width="120"/>
+								<ColumnDefinition Width="*"/>
+							</Grid.ColumnDefinitions>
+
+							<TextBlock Grid.Column="0" Text="Số phòng:" FontWeight="Bold"/>
+							<TextBlock Grid.Column="1" Text="{Binding PhongDangChon.SoPhong}"/>
+							<TextBlock Grid.Column="2" Text="Loại phòng:" FontWeight="Bold"/>
+							<TextBlock Grid.Column="3" Text="{Binding PhongDangChon.LoaiPhong.TenLoai}"/>
+
+							<TextBlock Grid.Column="0" Grid.Row="1" Text="Giá/đêm:" FontWeight="Bold" Margin="0,6,0,0"/>
+							<TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding PhongDangChon.GiaMoiDem, StringFormat=N0}" Margin="0,6,0,0"/>
+							<TextBlock Grid.Column="2" Grid.Row="1" Text="Sức chứa:" FontWeight="Bold" Margin="0,6,0,0"/>
+							<TextBlock Grid.Column="3" Grid.Row="1" Text="{Binding PhongDangChon.SucChua}" Margin="0,6,0,0"/>
+						</Grid>
+
+                        <Grid Margin="0,0,0,10">
+							<Grid.RowDefinitions>
+								<RowDefinition Height="Auto"/>
+								<RowDefinition Height="Auto"/>
+								<RowDefinition Height="Auto"/>
+							</Grid.RowDefinitions>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="120"/>
+								<ColumnDefinition Width="*"/>
+								<ColumnDefinition Width="120"/>
+								<ColumnDefinition Width="*"/>
+							</Grid.ColumnDefinitions>
+
+							<TextBlock Grid.Column="0" Text="Khách hàng:" FontWeight="Bold"/>
+							<TextBlock Grid.Column="1" Text="{Binding KhachHangChiTiet.HoTen}"/>
+							<TextBlock Grid.Column="2" Text="Điện thoại:" FontWeight="Bold"/>
+							<TextBlock Grid.Column="3" Text="{Binding KhachHangChiTiet.DienThoai}"/>
+
+							<TextBlock Grid.Column="0" Grid.Row="1" Text="Địa chỉ:" FontWeight="Bold" Margin="0,6,0,0"/>
+							<TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding KhachHangChiTiet.DiaChi}" Margin="0,6,0,0"/>
+							<TextBlock Grid.Column="2" Grid.Row="1" Text="Checkin:" FontWeight="Bold" Margin="0,6,0,0"/>
+							<TextBlock Grid.Column="3" Grid.Row="1" Text="{Binding DatPhongChiTiet.NgayCheckin, StringFormat=dd/MM/yyyy}" Margin="0,6,0,0"/>
+
+							<TextBlock Grid.Column="0" Grid.Row="2" Text="Checkout:" FontWeight="Bold" Margin="0,6,0,0"/>
+							<TextBlock Grid.Column="1" Grid.Row="2" Text="{Binding DatPhongChiTiet.NgayCheckout, StringFormat=dd/MM/yyyy}" Margin="0,6,0,0"/>
+							<TextBlock Grid.Column="2" Grid.Row="2" Text="Tổng tiền:" FontWeight="Bold" Margin="0,6,0,0"/>
+							<TextBlock Grid.Column="3" Grid.Row="2" Text="{Binding DatPhongChiTiet.TongTien, StringFormat=N0}" Margin="0,6,0,0"/>
+						</Grid>
+
+                       <TextBlock Text="Dịch vụ đã sử dụng" FontWeight="Bold" Margin="0,0,0,5"
+								Visibility="{Binding HienThiDichVu, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+						<DataGrid AutoGenerateColumns="False"
+								ItemsSource="{Binding DanhSachDichVu}"
+								IsReadOnly="True"
+								RowHeight="35"
+								AlternatingRowBackground="#F9F9F9"
+								Visibility="{Binding HienThiDichVu, Converter={StaticResource BooleanToVisibilityConverter}}">
+							<DataGrid.Columns>
+								<DataGridTextColumn Header="Dịch vụ" Binding="{Binding DichVu.TenDichVu}" Width="200"/>
+								<DataGridTextColumn Header="Số lượng" Binding="{Binding SoLuong}" Width="80"/>
+								<DataGridTextColumn Header="Thành tiền" Binding="{Binding ThanhTien, StringFormat=N0}" Width="120"/>
+								<DataGridTextColumn Header="Ngày dùng" Binding="{Binding NgaySuDung, StringFormat=dd/MM/yyyy}" Width="120"/>
+							</DataGrid.Columns>
+						</DataGrid>
+
+						<StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">
+							<Button Content="Đóng" Style="{StaticResource PrimaryButton}"
+									Command="{Binding DongChiTietCommand}"/>
+						</StackPanel>
+					</StackPanel>
+				</Border>
 			</Grid>
 		</Border>
 

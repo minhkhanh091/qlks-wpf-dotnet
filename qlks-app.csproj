@@ -117,8 +117,20 @@
     <Compile Include="views\Login_View.xaml.cs">
       <DependentUpon>Login_View.xaml</DependentUpon>
     </Compile>
+    <Compile Include="views\NhanVienDatPhongTrucTiep_View.xaml.cs">
+      <DependentUpon>NhanVienDatPhongTrucTiep_View.xaml</DependentUpon>
+    </Compile>
     <Compile Include="views\NhanVienManagement_View.xaml.cs">
       <DependentUpon>NhanVienManagement_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="views\NhanVienTraPhong_View.xaml.cs">
+      <DependentUpon>NhanVienTraPhong_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="views\NhanVienXacNhanDatPhong_View.xaml.cs">
+      <DependentUpon>NhanVienXacNhanDatPhong_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="views\QuanLiDichVu_View.xaml.cs">
+      <DependentUpon>QuanLiDichVu_View.xaml</DependentUpon>
     </Compile>
     <Compile Include="views\QuanTri_View.xaml.cs">
       <DependentUpon>QuanTri_View.xaml</DependentUpon>
@@ -130,6 +142,8 @@
     <Compile Include="view_model\KhachHang_ViewModel.cs" />
     <Compile Include="view_model\Login_ViewModel.cs" />
     <Compile Include="view_model\NhanVienManagement_ViewModel.cs" />
+    <Compile Include="view_model\NhanVien_ViewModel.cs" />
+    <Compile Include="view_model\QuanLiDichVu_ViewModel.cs" />
     <Compile Include="view_model\QuanTri_ViewModel.cs" />
     <Compile Include="view_model\QuanLiPhong_ViewModel.cs" />
     <Page Include="MainWindow.xaml">
@@ -152,7 +166,22 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="views\NhanVienDatPhongTrucTiep_View.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="views\NhanVienManagement_View.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\NhanVienTraPhong_View.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\NhanVienXacNhanDatPhong_View.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\NhanVien_View.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\QuanLiDichVu_View.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="views\QuanTri_View.xaml">

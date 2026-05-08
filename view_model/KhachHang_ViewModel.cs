@@ -306,7 +306,7 @@ namespace qlks_app.view_model
                 PhongId = PhongDangChon.Id,
                 NgayCheckin = NgayCheckin.Value,
                 NgayCheckout = NgayCheckin.Value.AddDays(SoDem),
-                TrangThai = "Đã đặt",
+                TrangThai = "Chờ xác nhận",
                 TongTien = PhongDangChon.GiaMoiDem * SoDem
             };
 
