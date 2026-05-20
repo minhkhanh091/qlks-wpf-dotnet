@@ -314,6 +314,12 @@ namespace qlks_app.view_model
                     return;
                 }
 
+                var ketQua = MessageBox.Show("Bạn có chắc chắn muốn xóa phòng này?", "Xác nhận xóa", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                if (ketQua != MessageBoxResult.Yes)
+                {
+                    return;
+                }
+
                 _db.Phongs.Remove(PhongDangChon);
                 _db.SaveChanges();
                 TaiDuLieuPhong();

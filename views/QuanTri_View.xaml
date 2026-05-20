@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:qlks_app.view_model"
         mc:Ignorable="d"
-        Title="QuanTri_View" Height="700" Width="1200"
+        Title="Hệ thống quản lí" Height="700" Width="1200"
         Background="#F4F6F9">
 
     <Window.DataContext>

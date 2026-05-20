@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:qlks_app.view_model"
         mc:Ignorable="d"
-        Title="Login_View" Height="450" Width="800">
+        Title="Vui lòng đăng nhập" Height="450" Width="800">
 
     <Window.DataContext>
         <local:Login_ViewModel/>
